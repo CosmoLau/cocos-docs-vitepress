@@ -8,7 +8,7 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 引擎默认使用 **前向渲染管线**，前向渲染管线的执行流程如下图所示：
 
-<img src="./image/forward-pipeline.png" width=760 height=296></img>
+<img src="./image/forward-pipeline.png" width=760 height=296>
 
 前向渲染主要包括 **ShadowFlow** 和 **ForwardFlow** 两个阶段：
 - **ShadowFlow** 中包含一个 **ShadowStage** 会预先对场景中需要投射阴影的物体进行阴影贴图的绘制。
@@ -18,7 +18,7 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 目前引擎提供了试验版本的内置 **延迟渲染管线**，对于光照数量比较多的项目可以使用 **延迟渲染管线** 来缓解光照计算的压力。延迟管线的执行流程如下图所示：
 
-<img src="./image/DeferredPipeline.png" width=760 height=350></img>
+<img src="./image/DeferredPipeline.png" width=760 height=350>
 
 内置的延迟渲染管线主要包括 **ShadowFlow** 和 **MainFlow** 两个过程：
 1. **ShadowFlow** 与前向渲染一致，用于预先进行阴影贴图的绘制。
@@ -33,7 +33,7 @@ Cocos Creator 3.1 的内置渲染管线包括 **builtin-forward**（前向渲染
 
 1. 点击 Creator 顶部菜单栏中的 **项目 -> 项目设置 -> Macro Configurations**，然后勾选 **ENABLE_BLOOM** 即可开启：
 
-    <img src="./image/BloomEnable.png" width=760 height=510></img>
+    <img src="./image/BloomEnable.png" width=760 height=510>
 
 2. 通过代码开启，示例如下：
 

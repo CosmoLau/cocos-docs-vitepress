@@ -71,20 +71,18 @@ Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过�
 
 <table>
 <tbody>
-<tr style = 'border: 1px'>
-碰撞的过程
-</tr>
-</br>
+<tr style = 'border: 1px'>碰撞的过程</tr>
+<br>
 <tr>
 <td style="padding:4px;width:256px;vertical-align:middle;border:1px solid black;text-align:center">
 碰撞 1<br>
-<img src="./image/collision-callback-order-1.png"></img>
+<img src="./image/collision-callback-order-1.png">
 <div style="height:4px"></div>
 碰撞 2<br>
-<img src="./image/collision-callback-order-2.png"></img>
+<img src="./image/collision-callback-order-2.png">
 <div style="height:4px"></div>
 碰撞 3<br>
-<img src="./image/collision-callback-order-3.png"></img>
+<img src="./image/collision-callback-order-3.png">
 </td>
 <td style="padding:4px;border:1px solid black">
     当两个碰撞体相互覆盖时，Box2D 默认的行为是给每个碰撞体一个冲量将它们分开，但是这个行为不一定能在一个物理周期内完成。像这里显示的一样，示例中的碰撞体会在三个物理周期内相互覆盖直到“反弹”完成并且它们相互分离。在这个时间里可以定制我们想要的行为，<b>onPreSolve</b> 会在每次物理引擎处理碰撞前回调，可以在这个回调里修改碰撞信息； <b>onPostSolve</b> 会在处理完成这次碰撞后回调，可以在这个回调中获取到物理引擎计算出的碰撞的冲量信息。<br><br>
@@ -108,7 +106,7 @@ Box2D 物理模块模拟碰撞的过程是比较复杂的，我们可以通过�
     ...
 </pre>
 </td>
-<tr>
+</tr>
 </tbody>
 </table>
 

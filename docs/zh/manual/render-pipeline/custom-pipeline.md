@@ -16,11 +16,11 @@ Cocos Creator 3.6中添加了新的 **自定义渲染管线**。
 
 **自定义渲染管线** 的【**渲染通道**、**渲染队列**、**渲染内容**】构成一个森林：
 
-<img src="./image/cp-render-graph-1.png" width=640></img>
+<img src="./image/cp-render-graph-1.png" width=640>
 
 **自定义渲染管线**的【**渲染通道**、**渲染视图**】构成一个有向无圈图（DAG）：
 
-<img src="./image/cp-render-graph-2.png" width=640></img>
+<img src="./image/cp-render-graph-2.png" width=640>
 
 我们可以层叠（Stack）以上两张图，得到 **渲染流程图**（RenderGraph）。**渲染流程图** 描述了 **自定义渲染管线** 的全部流程，引擎会按照用户定制的流程图进行资源分配、流程优化、渲染执行。
 
@@ -36,7 +36,7 @@ Cocos Creator 3.6中添加了新的 **自定义渲染管线**。
 
 #### 1. **光栅化通道**（RasterPass）
 
-<img src="./image/cp-raster-pass.png" width=760></img>
+<img src="./image/cp-raster-pass.png" width=760>
 
 - width、height为输出渲染目标的分辨率。
 
@@ -58,7 +58,7 @@ Cocos Creator 3.6中添加了新的 **自定义渲染管线**。
 
 #### 1. **计算通道**（ComputePass）
 
-<img src="./image/cp-compute-pass.png" width=760></img>
+<img src="./image/cp-compute-pass.png" width=760>
 
 - layoutName为Effect的Pass名字。
 
@@ -76,7 +76,7 @@ Cocos Creator 3.6中添加了新的 **自定义渲染管线**。
 
 负责将资源来源（source）拷贝至目标（target），需要资源格式兼容。
 
-<img src="./image/cp-copy-pass.png" width=760></img>
+<img src="./image/cp-copy-pass.png" width=760>
 
 - name 为调试（debug）时显示的名字。为空时，系统会赋予默认名字。
 
@@ -96,7 +96,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **光栅化视图** 会被光栅化。有两种子类型：渲染目标（RenderTarget），深度模板（DepthStencil）。
 
-<img src="./image/cp-raster-view.png" width=560></img>
+<img src="./image/cp-raster-view.png" width=560>
 
 - slotName 为 shader pixel 分量的名字。（比如color、normal等）
 
@@ -116,7 +116,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **计算视图**不会被光栅化。常用于采样（Sample）、乱序读写（Unordered Access）。
 
-<img src="./image/cp-compute-view.png" width=520></img>
+<img src="./image/cp-compute-view.png" width=520>
 
 - name 为 Shader 描述符（Descriptor）的名字。
 
@@ -134,11 +134,11 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **光栅化通道**：
 
-<img src="./image/cp-add-raster-view.png" width=760></img>
+<img src="./image/cp-add-raster-view.png" width=760>
 
 **计算通道**：
 
-<img src="./image/cp-add-compute-view.png" width=760></img>
+<img src="./image/cp-add-compute-view.png" width=760>
 
 ## 渲染队列（RenderQueue）
 
@@ -150,9 +150,9 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **光栅化队列** 执行光栅化任务，一般为绘制 **场景**、绘制全屏四边形等。**光栅化队列** 内部为乱序绘制。
 
-<img src="./image/cp-add-raster-queue.png" width=760></img>
+<img src="./image/cp-add-raster-queue.png" width=760>
 
-<img src="./image/cp-raster-queue.png" width=760></img>
+<img src="./image/cp-raster-queue.png" width=760>
 
 - hint 为队列提示，有 None、Opaque、Cutout、Transparent 四种选项。hint 不会影响执行，只用于性能检测。比如在移动平台上，我们往往希望先绘制 Opaque 队列（关闭 AlphaTest），再绘制 Cutout 队列（开启AlphaTest）。如果在 Opaque 队列的绘制内容中，不小心混入了开启 AlphaTest 的物件，会降低图形性能。因此我们会通过队列提示，检查用户的提交是否符合预期。
 
@@ -162,9 +162,9 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **计算队列** 只包含 **分发**（Dispatch），顺序执行。
 
-<img src="./image/cp-add-compute-queue.png" width=520></img>
+<img src="./image/cp-add-compute-queue.png" width=520>
 
-<img src="./image/cp-compute-queue.png" width=760></img>
+<img src="./image/cp-compute-queue.png" width=760>
 
 **计算通道** 没有队列提示。
 
@@ -176,7 +176,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 需要绘制的2D、3D**场景**。适用于**光栅化队列**。
 
-<img src="./image/cp-scene.png" width=760></img>
+<img src="./image/cp-scene.png" width=760>
 
 可通过 camera 添加，也可以直接添加。可以附加一定的光照信息。
 
@@ -186,13 +186,13 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 全屏/局部的**矩形**。常用于后期特效渲染。适用于**光栅化队列**。
 
-<img src="./image/cp-quad.png" width=760></img>
+<img src="./image/cp-quad.png" width=760>
 
 ### 分发（Dispatch）
 
 用于**计算队列**。
 
-<img src="./image/cp-dispatch.png" width=760></img>
+<img src="./image/cp-dispatch.png" width=760>
 
 ### 动态设置
 
@@ -206,7 +206,7 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 **渲染流程图**（RenderGraph）在 **渲染通道**（RenderPass）、**渲染队列**（RenderQueue）提供了设置数据的接口。
 
-<img src="./image/cp-setter.png" width=760></img>
+<img src="./image/cp-setter.png" width=760>
 
 用户可以设置常量（Constant）、缓冲（Buffer）、贴图（Texture）等数据。
 
@@ -222,18 +222,18 @@ RenderView 有两种类型：**光栅化视图**（RasterView），**计算视�
 
 - **渲染队列**：每 **渲染阶段** 上传一次（PerPhase）。
 
-<img src="./image/cp-data-structure.png" width=760></img>
+<img src="./image/cp-data-structure.png" width=760>
 
 ## 功能开启
 
 勾选 **自定义渲染管线**。
 
-<img src="./image/cp-feature-enable.png" width=760></img>
+<img src="./image/cp-feature-enable.png" width=760>
 
 通过填写 **自定义管线** 的名字，选择注册好的 **自定义渲染管线**。
 - 目前支持 **Custom**, **Forward**, **Deferred** 三种 (其中 Custom 是基于 Forward 基础上添加的 Bloom 后效示例)。
 
-<img src="./image/cp-pipeline-selection.png" width=760></img>
+<img src="./image/cp-pipeline-selection.png" width=760>
 
 ## 编写自定义渲染管线
 
@@ -356,11 +356,11 @@ function buildPostprocessPass (camera,
 
 首先我们需要知道 `RasterPass` 如何配置 `layoutName` （即上述代码中的 post-process 字符串）。打开 `post-process.effect` 文件后，可以看到内部定义的 `pass` 名称就是 `post-process` ，所以 effect 文件中的 pass name 就是作为 RasterPass 的 `layoutName`。如果 effect 没有定义 pass name，那么 `RasterPass` 的 `layoutName` 就得赋值为 `default` （forward/gbuffer 相关的 RasterPass 都是通过 default 配置）。所以要配置自己的后处理方案，就需要为自己编写的 effect 文件正确配置 pass name。
 
-<img src="./image/postprocessPass.png" width=760></img>
+<img src="./image/postprocessPass.png" width=760>
 
 另外我们还需要把上一个 pass 的输出纹理作为当前 pass 的输入信息，上面说到需要通过 `ComputeView` 实现，而这里 `ComputeView` 的 name 设置为了 `outputResultMap`，那么该怎么正确配置这个名称？继续对 `post-process.effect` 文件分析，可以看到下面的代码，`ComputeView` 的 name 与 `post-process-fs` 的片元着色器的纹理输入名称一致。
 
-<img src="./image/postprocessOutput.png" width=760></img>
+<img src="./image/postprocessOutput.png" width=760>
 
 同时我们需要通过下述代码行对 `outputResultMap` 名称进行声明，表明该输入纹理的使用频率为 Pass level。
 
@@ -370,10 +370,10 @@ function buildPostprocessPass (camera,
 
 定义完 `TestCustomPipeline` 后需要通过其它逻辑代码（如：组件等）引入该文件，以便激活 `Game.EVENT_RENDERER_INITED` 事件监听，之后改变 **项目设置** -> **宏配置** -> **CUSTOM_PIPELINE_NAME** 为 `Test`:
 
-<img src="./image/testCustomPipeline.png" width=760></img>
+<img src="./image/testCustomPipeline.png" width=760>
 
 运行后的效果如下所示,它包含了 fxaa 与 bloom 的后效：
 
-<img src="./image/customPipelineBloom.png" width=760></img>
+<img src="./image/customPipelineBloom.png" width=760>
 
 这就是定义一个 `RenderPass` 的流程，PassUtils 还定义了其它 Pass 可以提供用户参考，包括 `BloomPasses`，`FxaaPass` 等。这些 `RenderPass` 提供了调节参数可对输出效果进行调整（如Bloom的曝光强度，迭代次数等），用户可查看相关的代码进行尝试。

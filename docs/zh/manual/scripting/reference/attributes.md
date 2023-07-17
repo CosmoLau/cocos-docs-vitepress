@@ -17,7 +17,7 @@
 | step | 指定数值在编辑器中调节的步长 | number | undefined | - |
 | range | 一次性设置 min、max、step | [min, max, step] | undefined | step 值可选 |
 | slide | 在 **属性检查器** 面板中显示为滑动条 | boolean | false | - |
-| group | 在 **属性检查器** 面板中显示为分组，样式默认为 tab | { name } 或 { id, name, displayOrder, style } | undefined | 详见 [group 参数](../decorator.md#group) |
+| group | 在 **属性检查器** 面板中显示为分组，样式默认为 tab | \{ name \} 或 \{ id, name, displayOrder, style \} | undefined | 详见 [group 参数](../decorator.md#group) |
 
 ## 序列化相关参数
 
@@ -36,7 +36,7 @@
 | override | 当重写父类属性时需要定义该参数为 true | boolean | false | 详见 [override 参数](../decorator.md#override) |
 
 <!-- | default | 定义属性的默认值 | (Any) | undefined | 详见 [default 参数](../decorator.md#default参数) |
-| notify | 当属性被赋值时触发指定方法 | `function (oldValue) {}` | undefined | 需要定义 default 属性并且不能用于数组<br>不支持 ES6 定义方式 | -->
+| notify | 当属性被赋值时触发指定方法 | `function (oldValue) \{\}` | undefined | 需要定义 default 属性并且不能用于数组<br>不支持 ES6 定义方式 | -->
 <!-- | animatable | 该属性是否能被动画编辑器修改 | boolean | undefined | - | -->
 
 **注 1**：visible 的默认值取决于属性名。当属性名以下划线 `_` 开头时，默认隐藏，否则默认显示。
