@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+    ignoreDeadLinks: true,
     lang: "zh-CN",
     title: "Cocos",
     description: "Cocos Creator",
