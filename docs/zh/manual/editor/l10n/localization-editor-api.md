@@ -100,7 +100,7 @@ import { L10nManager } from 'db://localization-editor/l10n'
 
 #### 全局变量
 
-#### `l10n`
+#### `l10n 定义`
 
 定义: `const l10n: L10nManager`
 

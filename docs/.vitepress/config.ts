@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+    base: "/docs/cocos/",
     ignoreDeadLinks: true,
     lang: "zh-CN",
     title: "Cocos",
@@ -9,26 +10,26 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Home', link: '/' },
+            { text: '主页', link: '/' },
             {
                 text: 'Cocos Creator',
                 items: [
                     { text: '手册文档', link: '/zh/manual/' },
-                    { text: 'API 参考', link: '/' },
+                    { text: 'API 参考', link: '/api/' },
                 ]
             },
             {
                 text: 'Cocos Creator 3D',
                 items: [
                     { text: '手册文档', link: '/zh/manual/' },
-                    { text: 'API 参考', link: '/' },
+                    { text: 'API 参考', link: '/api/' },
                 ]
             },
             {
                 text: 'Cocos2d-x',
                 items: [
                     { text: '手册文档', link: '/zh/manual/' },
-                    { text: 'API 参考', link: '/' },
+                    { text: 'API 参考', link: '/api/' },
                 ]
             },
             {
@@ -255,17 +256,36 @@ export default defineConfig({
                         ]
                     }
                 ]
-            },
-            {
-                text: 'jsb',
-                link: '/zh/manual/advanced-topics/jsb-manual-binding',
             }
         ],
 
-        socialLinks: [
-            { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-        ],
+        search: {
+            provider: 'local',
+            options: {
+                locales: {
+                    root: {
+                        translations: {
+                            button: {
+                                buttonText: "搜索文档",
+                                buttonAriaLabel: "搜索文档",
+                            },
+                            modal: {
+                                noResultsText: "无法找到相关结果",
+                                resetButtonTitle: '清除查询条件',
+                                footer: {
+                                    selectText: '选择',
+                                    navigateText: '切换'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
 
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/CosmoLau/cocos-docs-vitepress' }
+        ],
 
     },
 
