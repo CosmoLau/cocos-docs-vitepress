@@ -253,6 +253,107 @@ export default defineConfig({
                                 ]
                             },
                             { text: '脚本进阶', link: '/zh/manual/scripting/reference-class.md' },
+                            {
+                                text: '事件系统',
+                                collapsed: true,
+                                link: '/zh/manual/engine/event/index.md',
+                                items: [
+                                    { text: '发射和监听事件', link: '/zh/manual/engine/event/event-emit.md' },
+                                    { text: '输入事件系统', link: '/zh/manual/engine/event/event-input.md' },
+                                    { text: '节点事件系统', link: '/zh/manual/engine/event/event-node.md' },
+                                    { text: '事件 API', link: '/zh/manual/engine/event/event-api.md' },
+                                ]
+                            },
+                            {
+                                text: '模块规范与示例',
+                                collapsed: true,
+                                link: '/zh/manual/scripting/modules/index.md',
+                                items: [
+                                    { text: '引擎模块', link: '/zh/manual/scripting/modules/engine.md' },
+                                    { text: '外部模块使用案例', link: '/zh/manual/scripting/modules/example.md' },
+                                    { text: '模块规范', link: '/zh/manual/scripting/modules/spec.md' },
+                                    { text: '导入映射', link: '/zh/manual/scripting/modules/import-map.md' },
+                                ]
+                            },
+                            { text: '外部代码支持', link: '/zh/manual/scripting/external-scripts.md' },
+                        ]
+                    },
+                    {
+                        text: '跨平台发布',
+                        collapsed: true,
+                        link: '/zh/manual/editor/publish/index.md',
+                        items: [
+                            {
+                                text: '发布 Android 应用',
+                                collapsed: true,
+                                link: '/zh/manual/editor/publish/android/index.md',
+                                items: [
+                                    { text: 'Android 构建示例', link: '/zh/manual/editor/publish/android/build-example-android.md' },
+                                    { text: 'Android 构建选项', link: '/zh/manual/editor/publish/android/build-options-android.md' },
+                                    { text: '配置 Android 原生开发环境', link: '/zh/manual/editor/publish/android/build-setup-evn-android.md' },
+                                ]
+                            },
+                            {
+                                text: '发布 iOS 应用',
+                                collapsed: true,
+                                link: '/zh/manual/editor/publish/ios/index.md',
+                                items: [
+                                    { text: 'iOS 发布示例', link: '/zh/manual/editor/publish/ios/build-example-ios.md' },
+                                    { text: 'iOS 构建选项', link: '/zh/manual/editor/publish/ios/build-options-ios.md' },
+                                ]
+                            },
+                            {
+                                text: '发布 Windows 应用',
+                                collapsed: true,
+                                link: '/zh/manual/editor/publish/index.md',
+                                items: [
+                                    { text: 'Windows 构建示例', link: '/zh/manual/editor/publish/windows/build-example-windows.md' },
+                                    { text: 'Windows 构建选项', link: '/zh/manual/editor/publish/windows/build-options-windows.md' },
+                                ]
+                            },
+                            {
+                                text: '原生平台发布通用基础',
+                                collapsed: true,
+                                link: '/zh/manual/editor/publish/publish-native-index.md',
+                                items: [
+                                    { text: '原生平台通用构建选项', link: '/zh/manual/editor/publish/native-options.md' },
+                                    { text: '安装配置原生环境', link: '/zh/manual/editor/publish/setup-native-development.md' },
+                                    { text: '原生平台 JavaScript 调试', link: '/zh/manual/editor/publish/debug-jsb.md' },
+                                ]
+                            },
+                            {
+                                text: '发布到小游戏平台',
+                                collapsed: true,
+                                link: '/zh/manual/editor/publish/publish-mini-game.md',
+                                items: [
+                                    { text: '发布到 HUAWEI AppGallery Connect', link: '/zh/manual/editor/publish/publish-huawei-agc.md' },
+                                    { text: '发布到支付宝小游戏', link: '/zh/manual/editor/publish/publish-alipay-mini-game.md' },
+                                    { text: '发布到淘宝小游戏', link: '/zh/manual/editor/publish/publish-taobao-mini-game.md' },
+                                    { 
+                                        text: '发布到微信小游戏',
+                                        collapsed: true,
+                                        link: '/zh/manual/editor/publish/publish-wechatgame.md',
+                                        items: [
+                                            { text: '启用微信小游戏引擎插件', link: '/zh/manual/editor/publish/wechatgame-plugin.md' },
+                                            { text: '接入微信 PC 小游戏', link: '/zh/manual/editor/publish/publish-pc-wechatgame.md' },
+                                        ]
+                                    },
+                                    { text: '发布到字节跳动小游戏', link: '/zh/manual/editor/publish/publish-bytedance-mini-game.md' },
+                                    { text: '发布到华为快游戏', link: '/zh/manual/editor/publish/publish-huawei-quick-game.md' },
+                                    { text: '发布到 OPPO 小游戏', link: '/zh/manual/editor/publish/publish-oppo-mini-game.md' },
+                                    { text: '发布到 vivo 小游戏', link: '/zh/manual/editor/publish/publish-vivo-mini-game.md' },
+                                    { text: '发布到小米快游戏', link: '/zh/manual/editor/publish/publish-xiaomi-quick-game.md' },
+                                    { text: '发布到百度小游戏', link: '/zh/manual/editor/publish/publish-baidu-mini-game.md' },
+                                    { text: '开放数据域', link: '/zh/manual/editor/publish/build-open-data-context.md' },
+                                    { text: '小游戏分包', link: '/zh/manual/editor/publish/subpackage.md' },
+                                ]
+                            },
+                            { text: '发布到 Facebook Instant Games 平台', link: '/zh/manual/editor/publish/publish-fb-instant-games.md' },
+                            { text: '发布到 Web 平台', link: '/zh/manual/editor/publish/publish-web.md' },
+                            { text: '通用构建选项介绍', link: '/zh/manual/editor/publish/build-options.md' },
+                            { text: '命令行发布项目', link: '/zh/manual/editor/publish/publish-in-command-line.md' },
+                            { text: '定制项目的构建模版', link: '/zh/manual/editor/publish/custom-project-build-template.md' },
+                            { text: '构建流程简介与常见错误处理', link: '/zh/manual/editor/publish/build-guide.md' },
                         ]
                     }
                 ]
