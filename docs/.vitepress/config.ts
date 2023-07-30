@@ -305,7 +305,7 @@ export default defineConfig({
                             {
                                 text: '发布 Windows 应用',
                                 collapsed: true,
-                                link: '/zh/manual/editor/publish/index.md',
+                                link: '/zh/manual/editor/publish/windows/index.md',
                                 items: [
                                     { text: 'Windows 构建示例', link: '/zh/manual/editor/publish/windows/build-example-windows.md' },
                                     { text: 'Windows 构建选项', link: '/zh/manual/editor/publish/windows/build-options-windows.md' },
