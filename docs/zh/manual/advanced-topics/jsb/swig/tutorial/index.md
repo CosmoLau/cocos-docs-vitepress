@@ -47,7 +47,7 @@ cocos_source_files(
 
 打开 `jsb_module_register.cpp` ，做如下修改
 
-```c++
+```cpp
 ......
 #if CC_USE_PHYSICS_PHYSX
     #include "cocos/bindings/auto/jsb_physics_auto.h"
@@ -79,7 +79,7 @@ bool jsb_register_all_modules() {
 
 创建一个头文件，其位于 `/Users/james/NewProject/native/engine/Classes/MyObject.h` , 其内容为：
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -105,7 +105,7 @@ private:
 
 创建一个名称为 `my-module.i` 的接口文件，其位于 `/Users/james/NewProject/tools/swig-config`目录下。
 
-```c++
+```cpp
 // my-module.i
 %module(target_namespace="my_ns") my_module
 
@@ -206,7 +206,7 @@ Windows: `< 一个存放项目的目录 >/NewProject/build/win64/proj/NewProject
 
 修改 `Game.cpp`
 
-```c++
+```cpp
 #include "Game.h"
 #include "bindings/auto/jsb_my_module_auto.h" // 添加此行
 //......
@@ -295,7 +295,7 @@ int Game::init() {
 
 假定我们让 MyObject 类继承于 MyRef 类。但是我们并不想绑定 MyRef 类型。
 
-```c++
+```cpp
 // MyRef.h
 #pragma once
 namespace my_ns {
@@ -311,7 +311,7 @@ private:
 } // namespace my_ns {
 ```
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -343,7 +343,7 @@ private:
 
 要解决此警告也容易，我们只需要使用 `%import` 指令让 Swig 知道 MyRef 类的存在即可。
 
-```c++
+```cpp
 // ......
 // Insert code at the beginning of generated source file (.cpp)
 %{
@@ -366,7 +366,7 @@ private:
 
 在上一节中，我们在 `js_register_my_ns_MyObject` 函数中碰到了一个编译错误。这是因为 `MyRef` 类型并不应该被绑定，我们可以用 `%ignore` 指令来忽略它。
 
-```c++
+```cpp
 // my-module.i
 // ......
 %ignore my_ns::MyRef; // 添加此行
@@ -376,7 +376,7 @@ private:
 
 重新生成绑定，现在应该可以编译通过了。
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 bool js_register_my_ns_MyObject(se::Object* obj) {
     auto* cls = se::Class::create("MyObject", obj, nullptr, _SE(js_new_MyObject)); // parentProto will be set to nullptr
@@ -390,7 +390,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 我们为 `MyObject` 类添加一个名为 `methodToBeIgnored` 的方法，再添加一个名为 `propertyToBeIgnored` 的属性。
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -414,7 +414,7 @@ private:
 
 重新生成绑定, 我们可以发现 `methodToBeIgnored` 和 `propertyToBeIgnored` 的绑定代码已经被自动生成。
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 bool js_register_my_ns_MyObject(se::Object* obj) {
     auto* cls = se::Class::create("MyObject", obj, nullptr, _SE(js_new_MyObject)); 
@@ -428,7 +428,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 修改 `my-module.i`以忽略绑定这个方法与属性。
 
-```c++
+```cpp
 // my-module.i
 // ......
 
@@ -442,7 +442,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 重新生成绑定，它们将被忽略。
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 bool js_register_my_ns_MyObject(se::Object* obj) {
     auto* cls = se::Class::create("MyObject", obj, nullptr, _SE(js_new_MyObject)); 
@@ -456,7 +456,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 Swig 定义了一个名为 `%rename` 指令用于重命名类、方法或者属性。我们继续使用 `MyObject` 类来展示。
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -481,7 +481,7 @@ private:
 
 重新生成绑定，我们发现 `methodToBeRenamed` 与 `propertyToBeRenamed` 的绑定代码已经被生成：
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 bool js_register_my_ns_MyObject(se::Object* obj) {
     auto* cls = se::Class::create("MyObject", obj, nullptr, _SE(js_new_MyObject)); 
@@ -494,7 +494,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 如果我们要重命名 `propertyToBeRenamed` 为 `coolProperty` ，重命名 `methodToBeRenamed` 为 `coolMethod`，那么按照下面的方式修改 `my-module.i` ：
 
-```c++
+```cpp
 // my-module.i
 // ......
 %ignore my_ns::MyRef;
@@ -509,13 +509,13 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 如果我们还想把  `MyObject` 类重命名为 `MyCoolObject`，我猜想你已经知道如何做了吧。没错，只要添加这行：
 
-```c++
+```cpp
 %rename(MyCoolObject) my_ns::MyObject;
 ```
 
 重新生成绑定代码，所有需要被重命名的类、方法与属性都按照我们的意愿被重命名了。
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 // MyCoolObject, coolProperty, coolMethod are all what we want now.
 bool js_register_my_ns_MyObject(se::Object* obj) {
@@ -530,7 +530,7 @@ bool js_register_my_ns_MyObject(se::Object* obj) {
 
 现在测试一下吧，更新如下文件 `my-module.d.ts` and `MyComponent.ts`
 
-```c++
+```cpp
 // my-module.d.ts
 declare namespace my_ns {
 class MyCoolObject {
@@ -585,19 +585,19 @@ export class MyComponent extends Component {
 
 1. 定义一个没有 `setter` 函数的 JS 属性，即只读的 JS 属性。
 
-   ```c++
+   ```cpp
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name)
    ```
 
 2. 定义一个有 `getter` 和 `setter` 函数的 JS 属性，即可读可写的 JS 属性。
 
-   ```c++
+   ```cpp
    %attribute(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_getter_function_name, cpp_setter_function_name)
    ```
 
 3. 定义一个没有 `getter` 的 JS 属性，即可写不可读的 JS 属性。
 
-   ```c++
+   ```cpp
    %attribute_writeonly(your_namespace::your_class_name, cpp_member_variable_type, js_property_name, cpp_setter_function_name)
    ```
 
@@ -605,7 +605,7 @@ export class MyComponent extends Component {
 
 为了方便演示，我们为 `MyObject` 添加两个新方法：`setType` 和 `getType`。
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -627,7 +627,7 @@ private:
 } // namespace my_ns {
 ```
 
-```c++
+```cpp
 // my-module.i
 // ......
 %attribute(my_ns::MyObject, int, type, getType, setType); // 添加此行
@@ -636,7 +636,7 @@ private:
 %include "MyObject.h"
 ```
 
-```c++
+```cpp
 // jsb_my_module_auto.cpp
 bool js_register_my_ns_MyObject(se::Object* obj) {
 // ......
@@ -686,7 +686,7 @@ export class MyComponent extends Component {
 
 例如在 `native/tools/swig-config/cocos.i` 中有如下定义：
 
-```c++
+```cpp
 %attribute_writeonly(cc::ICanvasRenderingContext2D, float, width, setWidth);
 %attribute_writeonly(cc::ICanvasRenderingContext2D, float, height, setHeight);
 %attribute_writeonly(cc::ICanvasRenderingContext2D, float, lineWidth, setLineWidth);
@@ -711,7 +711,7 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
 
 如果 C++ 的 `get` 函数返回的是一个引用数据类型或者  `set` 函数接受一个引用数据类型，别忘记在 %attribute 或 %attribute_writeonly 指令的编写中添加 `&` 后缀。以下 `ccstd::string&` 是一个例子：
 
-```c++
+```cpp
 %attribute_writeonly(cc::ICanvasRenderingContext2D, ccstd::string&, fillStyle, setFillStyle);
 ```
 
@@ -721,7 +721,7 @@ Object.defineProperty(MyNewClass.prototype, 'width', {
 
 有时候 C++ 变量的类型是用模版的方式来修饰的，例如：
 
-```c++
+```cpp
 class MyNewClass {
   public:
   const std::map<std::string, std::string>& getConfig() const { return _config; }
@@ -733,7 +733,7 @@ class MyNewClass {
 
 我们可能会在 `.i` 中写一个这样的 `%attribute` 指令：
 
-```c++
+```cpp
 %attribute(MyNewClass, std::map<std::string, std::string>&, config, getConfig, setConfig);
 ```
 
@@ -752,7 +752,7 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 为了避免这种情况出现，我们需要使用 `%arg` 指令来告诉 `swig` `std::map<std::string, std::string>&` 是一个整体。
 
-```c++
+```cpp
 %attribute(MyNewClass, %arg(std::map<std::string, std::string>&), config, getConfig, setConfig);
 ```
 
@@ -762,7 +762,7 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 在上一示例中，我们在 %attribute 指令中使用 `%arg(std::map<std::string, std::string>&)`。你可能会考虑在 `std::map` 前面添加一个 `const` 前缀，比如：`%arg(const std::map<std::string, std::string>&)`。如果你这样做了，你将添加一个 **只读的**、只绑定 `MyNewClass::getConfig` 的 `config` 属性。这明显不是我们所期望的。如果我们需要属性是只读的，只需要不配置 `setter` 函数即可。
 
-```c++
+```cpp
 // 不配置 setConfig 意味着属性是只读的
 %attribute(MyNewClass, %arg(std::map<std::string, std::string>&), config, getConfig); 
 ```
@@ -773,7 +773,7 @@ Error: Macro '%attribute_custom' expects 7 arguments
 
 有时候是否需要让一个类参与编译依赖于某个宏是否启用。比如，我们在 `MyObject.h` 文件中添加一个 `MyFeatureObject` 类：
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -817,7 +817,7 @@ private:
 } // namespace my_ns {
 ```
 
-```c++
+```cpp
 // my-module.i
 // ......
 %rename(MyCoolObject) my_ns::MyObject;
@@ -833,7 +833,7 @@ private:
 %include "MyObject.h"
 ```
 
-```c++
+```cpp
 // my-module.d.ts
 declare namespace my_ns {
 class MyFeatureObject {
@@ -883,7 +883,7 @@ export class MyComponent extends Component {
 
 重新生成绑定代码，自动绑定代码如下：
 
-```c++
+```cpp
 #if USE_MY_FEATURE // 注意，现在所有 MyFeatureObject 相关的绑定代码都被包在 USE_MY_FEATURE 宏下面了。
 
 se::Class* __jsb_my_ns_MyFeatureObject_class = nullptr;
@@ -944,7 +944,7 @@ bool register_all_my_module(se::Object* obj) {
 
 当我们不需要 `MyFeatureObject` 类的时候，把宏设置为 0 即可，代码示例如下：
 
-```c++
+```cpp
 // MyObject.h
 #pragma once
 #include "cocos/cocos.h"
@@ -965,7 +965,7 @@ bool register_all_my_module(se::Object* obj) {
 
 我们创建另外一个头文件，名为 `MyAnotherObject.h`。
 
-```c++
+```cpp
 // MyAnotherObject.h
 #pragma once
 namespace my_another_ns {
@@ -978,7 +978,7 @@ struct MyAnotherObject {
 
 更新 MyObject.h
 
-```c++
+```cpp
 // MyObject.h
 //......
 class MyObject : public MyRef {
@@ -994,7 +994,7 @@ public:
 
 创建 `/Users/james/NewProject/tools/swig-config/another-module.i`
 
-```c++
+```cpp
 // another-module.i
 %module(target_namespace="another_ns") another_module
 
@@ -1017,7 +1017,7 @@ public:
 
 修改 `/Users/james/NewProject/tools/swig-config/swig-config.js`
 
-```c++
+```cpp
 'use strict';
 
 const path = require('path');
@@ -1062,7 +1062,7 @@ list(APPEND CC_COMMON_SOURCES
 
 更新 Game.cpp：
 
-```c++
+```cpp
 #include "Game.h"
 #include "bindings/auto/jsb_my_module_auto.h"
 #include "bindings/auto/jsb_another_module_auto.h" // Add this line
@@ -1084,7 +1084,7 @@ int Game::init() {
 
 因为 MyObject 类依赖了 MyAnotherObject 类，而 MyAnotherObject 类是被定义在另外一个模块中的。我们需要修改 `my-module.i` 并添加 `#include "bindings/auto/jsb_another_module_auto.h"`。
 
-```c++
+```cpp
 // my-module.i
 %module(target_namespace="my_ns") my_module
 

@@ -70,7 +70,7 @@ Cocos Creator 打包环境要求：
 
 默认分辨率为 800 x 600，我们以把分辨率改为 800 x 400 为例。
 
-```C++
+```cpp
 int Game::init() {
   _windowInfo.title = GAME_NAME;
   // configure window size

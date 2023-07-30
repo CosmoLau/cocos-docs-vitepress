@@ -158,7 +158,7 @@
 
 - 编辑 `hello_cocos_glue.cpp`
 
-    ```c++
+    ```cpp
     #include "hello_cocos.h"
     #include "bindings/sebind/sebind.h"
     #include "plugins/bus/EventBus.h"

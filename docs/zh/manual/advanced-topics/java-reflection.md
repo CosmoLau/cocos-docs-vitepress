@@ -240,7 +240,7 @@ CocosHelper.runOnGameThread(new Runnable() {
 
 如果要在 C++ 中调用 `evalString`，我们可以参考下面的方式，确保 `evalString` 在 JavaScript 引擎所在的线程被执行：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=]() {
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });

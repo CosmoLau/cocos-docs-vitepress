@@ -20,7 +20,7 @@ let v = simpleMath.lerp(a, b, t);
 
 在 `native/engine/common/Classes` 目录，新建文件 `HelloSEBind.cpp`，写入以下内容：
 
-```c++
+```cpp
 // HelloSEBind.cpp
 #include "bindings/sebind/sebind.h"
 
@@ -57,7 +57,7 @@ list(APPEND CC_COMMON_SOURCES
 
 编辑 `Game.cpp`，位于 `native/engine/common/Classes` 目录：
 
-```c++
+```cpp
 // ...
 
 // declare registry function
@@ -99,7 +99,7 @@ int Game::init() {
 
 > **注意**：示例代码只用作说明 `sebind` 的用法, 内部接口设计和实现在实际开发中无参考价值。
 
-```c++
+```cpp
 class User {
 private:
   static int userCount;
@@ -162,14 +162,14 @@ int User::userCount = 0;
 
 关联 C++ 类和指定 JS 类名
 
-```c++
+```cpp
     // 定义绑定类和 JS 类名
   sebind::class_<User> userClass("User"); 
 ```
 
 #### 绑定构造函数
 
-```c++
+```cpp
 userClass.constructor<>() // JS: new User
     .constructor<const std::string &>() // JS: new User("Jone")
     .constructor<const std::string &, const std::string &>() // JS: new User("Jone", "343453")
@@ -184,7 +184,7 @@ userClass.constructor<>() // JS: new User
 
 我们也可以将普通函数定义为构造函数, 比如：
 
-```c++
+```cpp
 User *createUser(int credit) {
   return = new User("Lambda", "ctor", credit);
 }
@@ -198,13 +198,13 @@ User *createUser(int credit) {
 
 把 C++ 公开的字段定义为 JS 中的属性，代码示例如下：
 
-```c++
+```cpp
 .property("name", &User::name)  // JS: user.name
 ```
 
 也可以将 `getter`/`setter` 函数定义为属性。这里的 `getter` 函数需要有返回值, 且无参。`setter` 函数接受一个参数。
 
-```c++
+```cpp
 .property("token", &User::getToken, &User::setToken) // JS: user.token
 ```
 
@@ -212,7 +212,7 @@ User *createUser(int credit) {
 
 普通函数，第一个参数是 `User*`，可以作为成员函数使用。如：
 
-```c++
+```cpp
 std::string tokenLong_get(User *u) {
   return "token[" + u->getToken() + "]";
 }
@@ -227,7 +227,7 @@ void tokenLong_set(User *u, const std::string &s) {
 
 绑定成员函数，代码示例如下：
 
-```c++
+```cpp
 .function("mergeName1", &User::mergeName1) // JS: user1.mergeName1(user2)
 .function("mergeName2", &User::mergeName2) // JS: user2.mergeName1(user2)
 .function("mergeName3", &User::mergeName3) // JS: user3.mergeName1(user2)
@@ -239,7 +239,7 @@ JS 中绑定类型的实例可以作为参数传递给 C++ 绑定函数。C++ �
 
 如果对函数进行了重载，我们需要通过 `static_cast` 指定函数指针对应的具体类型。
 
-```c++
+```cpp
 .function("toString", static_cast<std::string(User::*)() const>(&User::toString))   ///JS: (new User).toString()
 .function("toString", static_cast<std::string(User::*)(const std::string&) const>(&User::toString))  //JS: (new User).toString("1111")
 ```
@@ -250,13 +250,13 @@ JS 中绑定类型的实例可以作为参数传递给 C++ 绑定函数。C++ �
 
 通过下方的代码示例，可以导出类的静态函数：
 
-```c++
+```cpp
 .staticFunction("doubleUserCount", &User::doubleUserCount) //JS: User.doubleUserCount()
 ```
 
 同样可以把普通函数导出为类静态函数：
 
-```c++
+```cpp
 int  static_add(int a, int b) { return a + b; }
 ///...
   .staticFunction("add", &static_add) //JS: User.add(1,2)
@@ -266,13 +266,13 @@ int  static_add(int a, int b) { return a + b; }
 
 将类静态函数导出为类的静态属性，代码示例如下：
 
-```c++
+```cpp
 .staticProperty("userCount", &User::getUserCount, &User::setUserCount)  //JS: User.userCount
 ```
 
 或普通函数：
 
-```c++
+```cpp
 int gettime() { return time(nullptr); }
 /// ...
 .staticProperty("time", &gettime, nullptr) //JS: User.time
@@ -282,7 +282,7 @@ int gettime() { return time(nullptr); }
 
 注册绑定对象被 GC 时的回调示例如下：
 
-```c++
+```cpp
 ...
 .finalizer([](User *usr) {
   std::cout << "release " << usr->name << std::endl;
@@ -293,7 +293,7 @@ int gettime() { return time(nullptr); }
 
 将 `User` 类挂载到 `globalThis`对象, 完成导出. JS 脚本中可在全局访问.
 
-```c++
+```cpp
 .install(globalThis);
 ```
 
@@ -301,7 +301,7 @@ int gettime() { return time(nullptr); }
 
 `sebind::class_` 的构造函数，第二个参数为父类的 `prototype` 对象。这里的 `SuperUser` 类继承了 `User` 类。
 
-```c++
+```cpp
 sebind::class_<User> superUser("SuperUser", userClass.prototype());
 {
   superUser.constructor<const std::string &>()
@@ -321,7 +321,7 @@ sebind::class_<User> superUser("SuperUser", userClass.prototype());
 从 3.6.1 起，通过 `sebind::bindFunction` 可以将 `se::Value` 对象，绑定为 C++ 中的 `std::function`，不需要处理参数的转换。 类似地，可以使用 `sebind::callFunction` 直接调用 JS 函数。
 
 示例如下：
-```c++
+```cpp
 demo.staticFunction(
   "add",
   +[](const se::Value &func, int a, int b) {
@@ -350,7 +350,7 @@ demo.staticFunction(
 
 示例如下：
 
-```c++
+```cpp
 
 class AbstractClass {
 public:
@@ -382,7 +382,7 @@ sub.install(globalThis);
 
 `sebind` 支持绑定传统 SE 函数，实现手动执行转换，代码示例如下：
 
-```c++
+```cpp
 bool jsb_sum(se::State &state) {
   double result = 0;
   auto &args = state.args();
@@ -404,7 +404,7 @@ bool jsb_sum(se::State &state) {
 
 我们只需要在 `constructor` 的参数类型中指定占位符 `sebind::ThisObject` 同时将对应构造函数的参数类型声明为 `se::Object *`。
 
-```c++
+```cpp
 // constructor
 User(se::Object *self, const std::string &name_) {
   self->setProperty("fromNative", se::Value(true));
@@ -419,7 +419,7 @@ JS 中调用对应构造函数的时候，需要忽略 `sebind::ThisObject` 参�
 
 HelloSEBind.cpp 完整代码如下：
 
-```c++
+```cpp
 
 #include "bindings/sebind/sebind.h"
 #include <iostream>

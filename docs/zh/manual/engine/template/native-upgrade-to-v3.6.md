@@ -19,13 +19,13 @@
 
 - 旧代码
 
-    ```c++
+    ```cpp
     void Java_com_google_android_games_paddleboat_GameControllerManager_onMouseConnected
     ```
 
 - 修改后的代码
 
-    ````c++
+    ````cpp
     JNIEXPORT void JNICALL Java_com_google_android_games_paddleboat_GameControllerManager_onMouseConnected
     ````
 
@@ -36,7 +36,7 @@
 
     代码示例如下：
     
-    ```c++
+    ```cpp
     static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
     {
         auto iter = se::NonRefNativePtrCreatedByCtorMap::find(SE_THIS_OBJECT<cc::gfx::Size>(s));
@@ -51,7 +51,7 @@
     SE_BIND_FINALIZE_FUNC(js_cc_gfx_Size_finalize)
     ```
     改为
-    ```c++
+    ```cpp
     static bool js_cc_gfx_Size_finalize(se::State& s) // NOLINT(readability-identifier-naming)
     {
         return true;

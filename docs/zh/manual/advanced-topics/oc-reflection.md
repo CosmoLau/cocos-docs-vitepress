@@ -114,7 +114,7 @@ var ret = native.reflection.callStaticMethod("NativeOcClass",
 
 调用示例如下：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString(script.c_str());
 });
@@ -136,7 +136,7 @@ window.callByNative = function(){
 
 然后像下面这样调用:
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("window.callByNative()");
 });
@@ -144,7 +144,7 @@ CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
 
 或者：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("callByNative()");
 });
@@ -166,7 +166,7 @@ window.NativeAPI = NativeAPI;
 
 我们可以像这样调用：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("NativeAPI.callByNative()");
 });
@@ -198,7 +198,7 @@ window.NativeAPIMgr = NativeAPIMgr;
 
 我们可以像下面这样调用：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("NativeAPIMgr.inst.callByNative()");
 });
@@ -218,7 +218,7 @@ window.callByNative = function(a:string, b:number, c:bool){
 
 可像这样调用：
 
-```c++
+```cpp
 CC_CURRENT_ENGINE()->getScheduler()->performFunctionInCocosThread([=](){
     se::ScriptEngine::getInstance()->evalString("window.callByNative('test',1,true)");
 });

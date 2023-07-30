@@ -24,7 +24,7 @@ console.log(`ownA: ${ownA}`); // ownA: true
 
 ### JS 绑定对象
 
-```c++
+```cpp
 // C++ 类
 class MyClass {
 public:

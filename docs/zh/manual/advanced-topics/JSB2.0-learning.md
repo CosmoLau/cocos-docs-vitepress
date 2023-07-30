@@ -21,7 +21,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 - JavaScriptCore
 
-    ```c++
+    ```cpp
     JSValueRef JSB_foo_func(
         JSContextRef _cx,
         JSObjectRef _function,
@@ -34,7 +34,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 - SpiderMonkey
 
-    ```c++
+    ```cpp
     bool JSB_foo_func(
         JSContext* _cx,
         unsigned argc,
@@ -44,7 +44,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 - V8
 
-    ```c++
+    ```cpp
     void JSB_foo_func(
         const v8::FunctionCallbackInfo<v8::Value>& v8args
     );
@@ -52,7 +52,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 - ChakraCore
 
-    ```c++
+    ```cpp
     JsValueRef JSB_foo_func(
         JsValueRef _callee,
         bool _isConstructCall,
@@ -64,7 +64,7 @@ JS 绑定的大部分工作其实就是设定 JS 相关操作的 CPP 回调，�
 
 我们评估了几种方案，最终确定使用 `宏` 来抹平不同 JS 引擎回调函数定义与参数类型的不同，不管底层是使用什么引擎，开发者统一使用一种回调函数的定义。我们借鉴了 lua 的回调函数定义方式，抽象层所有的 JS 到 CPP 的回调函数的定义为：
 
-```c++
+```cpp
 bool foo(se::State& s)
 {
     ...
@@ -105,7 +105,7 @@ CPP 抽象层所有的类型都在 `se` 命名空间下，其为 ScriptEngine �
 
 `se::Value` 可以被理解为 JS 变量在 CPP 层的引用。JS 变量有 `object`、`number`、 `bigint`, `string`、`boolean`、`null` 和 `undefined` 六种类型。因此 `se::Value` 使用 `union` 包含 `object`、`number`、`string`、`boolean` 5 种 **有值类型**。**无值类型** 包含 `null` 和 `undefined`，可由 `_type` 直接表示。
 
-```c++
+```cpp
 namespace se {
     class Value {
         enum class Type : char
@@ -149,7 +149,7 @@ namespace se {
 
 当在脚本层中通过 `var xhr = new XMLHttpRequest();` 创建了一个 XMLHttpRequest 后，在构造回调函数绑定中我们会创建一个 `se::Object` 并保留在一个全局的 `map (NativePtrToObjectMap)` 中，此 map 用于查询 `XMLHttpRequest*` 指针获取对应的 JS 对象 `se::Object*`。
 
-```c++
+```cpp
 /// native/cocos/bindings/manual/jsb_xmlhttprequest.cpp
 static bool XMLHttpRequest_constructor(se::State& s)
 {
@@ -181,7 +181,7 @@ void Object::setPrivateObject(PrivateObjectBase *data) {
 
 一般情况下，如果对象是非 `cc::Ref` 的子类，会采用 CPP 对象控制 JS 对象的生命周期的方式去绑定。引擎内 Spine, DragonBones, Box2d 等第三方库的绑定就是采用此方式。当 CPP 对象被释放的时候，需要在 `NativePtrToObjectMap` 中查找对应的 `se::Object`，然后手动 `unroot` 和 `decRef`。以 Spine 中 `spTrackEntry` 的绑定为例：
 
-```c++
+```cpp
 spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {
     // spTrackEntry 的销毁回调
     se::Object* seObj = nullptr;
@@ -243,14 +243,14 @@ spTrackEntry_setDisposeCallback([](spTrackEntry* entry) {
 **关联原生对象**
 
 3.6 之后 `se::Object::setPrivateData(void *)` 扩展成了:
-```c++
+```cpp
 template <typename T>
 inline void setPrivateData(T *data);
 ``` 
 能自动根据类型信息创建 `SharedPrivateObject` 或者 `CCSharedPtrPrivateObject`, 但是不支持 `RawRefPrivateObject`.
 
 我们可以使用 `setPrivateObject` 显示指定 `PrivateObject` 的类型:
-```c++
+```cpp
 // se::SharedPrivateObject<T>
 obj->setPrivateObject(se::shared_private_object(v));
 
@@ -278,7 +278,7 @@ obj->setPrivateObject(se::rawref_private_object(v));
 
 `se::Object::createXXX` 方法与 Cocos Creator 中的 `create` 方法不同，抽象层是完全独立的一个模块，并不依赖与 Cocos Creator 的 autorelease 机制。虽然 `se::Object` 也是继承引用计数类，但开发者需要处理 **手动创建出来的对象** 的释放。
 
-```c++
+```cpp
 se::Object* obj = se::Object::createPlainObject();
 ...
 ...
@@ -289,7 +289,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 - 在比较复杂的逻辑中使用手动创建对象，开发者往往会忘记在不同的逻辑中处理 `decRef`
 
-    ```c++
+    ```cpp
     bool foo()
     {
         se::Object* obj = se::Object::createPlainObject();
@@ -315,7 +315,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 以下两种代码写法是等价的，使用 `se::HandleObject` 的代码量明显少很多，而且更加安全。
 
-```c++
+```cpp
 {
     se::HandleObject obj(se::Object::createPlainObject());
     obj->setProperty(...);
@@ -325,7 +325,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 等价于：
 
-```c++
+```cpp
 {
     se::Object* obj = se::Object::createPlainObject();
     obj->root(); // 在手动创建完对象后立马 root，防止对象被 GC
@@ -371,7 +371,7 @@ obj->decRef(); // 释放引用，避免内存泄露
 
 开发者需要记住，在任何代码执行中，需要调用 JS 的逻辑前，声明一个 `se::AutoHandleScope` 即可，比如：
 
-```c++
+```cpp
 class SomeClass {
     void update(float dt) {
         se::ScriptEngine::getInstance()->clearException();
@@ -390,7 +390,7 @@ class SomeClass {
 
 之前章节我们有提及 State 类型，它是绑定回调中的一个环境，我们通过 `se::State` 可以取得当前的 CPP 指针、`se::Object` 对象指针、参数列表、返回值引用。
 
-```c++
+```cpp
 bool foo(se::State& s)
 {
     // 获取 native 对象指针
@@ -416,7 +416,7 @@ ScriptEngine 这层设计之初就将其定义为一个独立模块，完全不�
 
 ### 回调函数声明
 
-```c++
+```cpp
 static bool Foo_balabala(se::State& s)
 {
     const auto& args = s.args();
@@ -439,7 +439,7 @@ SE_BIND_FUNC(Foo_balabala)
 
 ### 为 JS 对象设置一个属性值
 
-```c++
+```cpp
 se::Object* globalObj = se::ScriptEngine::getInstance()->getGlobalObject(); // 这里为了演示方便，获取全局对象
 globalObj->setProperty("foo", se::Value(100)); // 给全局对象设置一个 foo 属性，值为 100
 ```
@@ -452,7 +452,7 @@ log("foo value: " + foo); // 打印出 foo value: 100
 
 ### 为 JS 对象定义一个属性读写回调
 
-```c++
+```cpp
 // 全局对象的 foo 属性的读回调
 static bool Global_get_foo(se::State& s)
 {
@@ -491,7 +491,7 @@ void some_func()
 
 ### 为 JS 对象设置一个函数
 
-```c++
+```cpp
 static bool Foo_function(se::State& s)
 {
     ...
@@ -508,7 +508,7 @@ void some_func()
 
 ### 注册一个 CPP 类到 JS 虚拟机中
 
-```c++
+```cpp
 static se::Object* __jsb_ns_SomeClass_proto = nullptr;
 static se::Class* __jsb_ns_SomeClass_class = nullptr;
 
@@ -661,7 +661,7 @@ bool js_register_ns_SomeClass(se::Object* global)
 
 ### 如何绑定 CPP 接口中的回调函数？
 
-```c++
+```cpp
 static bool js_SomeClass_setCallback(se::State& s)
 {
     const auto& args = s.args();
@@ -777,7 +777,7 @@ setCallback(nullptr)
 支持基础类型 `int*t`/`uint*_t`/`float`/`double`/`const char*`/`bool`,  `std::string`,绑定类型, 其容器类型 `std::vector`, `std::array`, `std::map`, `std::unordered_map` 等. 
 
 
-```c++
+```cpp
 template<typename T>
 bool sevalue_to_native(const se::Value &from, T *to, se::Object *ctx);
 
@@ -786,7 +786,7 @@ bool sevalue_to_native(const se::Value &from, T *to);
 ```
 #### C++ 类型转换为 se::Value
 
-```c++
+```cpp
 template<typename T>
 bool nativevalue_to_se(const T &from, se::Value &to, se::Object *ctx);
 
@@ -796,7 +796,7 @@ bool nativevalue_to_se(const T &from, se::Value &to);
  
 **3.6 之前的 以下这些转换函数已被弃用, 需要改为上面的两组函数**
 
-```c++
+```cpp
 bool seval_to_int32(const se::Value &v, int32_t *ret);
 bool seval_to_uint32(const se::Value &v, uint32_t *ret);
 bool seval_to_int8(const se::Value &v, int8_t *ret);
@@ -859,7 +859,7 @@ bool seval_to_Map_string_key(const se::Value& v, cc::Map<std::string, T>* ret)
 
 改用 `sevalue_to_native`
 
-```c++
+```cpp
 bool int8_to_seval(int8_t v, se::Value *ret);
 bool uint8_to_seval(uint8_t v, se::Value *ret);
 bool int32_to_seval(int32_t v, se::Value *ret);
@@ -931,12 +931,12 @@ bool seval_to_reference(const se::Value &v, T **ret);
 
 以上接口，直接根据接口名称即可知道具体的用法，接口中第一个参数为输入，第二个参数为输出参数。用法如下：
 
-```c++
+```cpp
 se::Value v;
 bool ok = nativevalue_to_se(100, v); // 第二个参数为输出参数，传入输出参数的地址
 ```
 
-```c++
+```cpp
 int32_t v;
 bool ok = sevalue_to_native(args[0], &v); // 第二个参数为输出参数，传入输出参数的地址
 ```
@@ -1063,7 +1063,7 @@ endif()
 ```
 
 再修改 `native/engine/common/Classes/Game.cpp`
-```c++
+```cpp
 #if CC_DEBUG
   _debuggerInfo.enabled = true;
 #else
@@ -1111,7 +1111,7 @@ endif()
 
 ScriptingCore 只需要在 AppDelegate 中被使用一次即可，之后的所有操作都只需要用到 `se::ScriptEngine`。
 
-```c++
+```cpp
 bool AppDelegate::applicationDidFinishLaunching()
 {
     ...
@@ -1149,7 +1149,7 @@ Ref 的子类必须在堆（Heap）上分配，即通过 `new`，然后通过 `r
 
 例如：
 
-```c++
+```cpp
 class CC_EX_DLL EventAssetsManagerEx : public EventCustom
 {
 public:
@@ -1175,7 +1175,7 @@ event->release();
 
 在 AppDelegate.cpp 中通过 `se::ScriptEngine::getInstance()->setExceptionCallback(...)` 设置 JS 层异常回调。
 
-```c++
+```cpp
 bool AppDelegate::applicationDidFinishLaunching()
 {
     ...
