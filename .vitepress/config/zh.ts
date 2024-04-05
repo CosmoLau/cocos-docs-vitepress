@@ -1,5 +1,5 @@
 import { DefaultTheme, defineConfig } from "vitepress";
-import { toc } from "./toc";
+import { sidebarFromGitbook } from "./zhToc";
 
 export const zh = defineConfig({
     lang: 'zh-Hans',
@@ -9,6 +9,18 @@ export const zh = defineConfig({
         nav: nav(),
 
         sidebar: sidebar(),
+
+        search: {
+            provider: 'local',
+            options: {
+                translations: {
+                    button: {
+                        buttonText: '搜索文档',
+                        buttonAriaLabel: '搜索文档',
+                    }
+                }
+            }
+        },
 
         editLink: {
             pattern: '',
@@ -52,25 +64,18 @@ function nav(): DefaultTheme.NavItem[] {
             text: 'Cocos Creator',
             items: [
                 { text: '手册文档', link: '/zh/' },
-                { text: 'API 参考', link: '/api/' },
-            ]
-        },
-        {
-            text: 'Cocos Creator 3D',
-            items: [
-                { text: '手册文档', link: '/zh/' },
-                { text: 'API 参考', link: '/api/' },
+                { text: 'API 参考', link: 'https://docs.cocos.com/creator/3.8/api/zh/' },
             ]
         },
         {
             text: 'Cocos2d-x',
             items: [
-                { text: '手册文档', link: '/zh/' },
-                { text: 'API 参考', link: '/api/' },
+                { text: '手册文档', link: 'https://docs.cocos.com/cocos2d-x/manual/zh' },
+                { text: 'API 参考', link: 'http://docs.cocos2d-x.org/api-ref/index.html' },
             ]
         },
         {
-            text: 'version',
+            text: '版本',
             items: [
                 { text: '3.7', link: 'https://docs.cocos.com/creator/3.7/zh' },
                 { text: '3.6', link: 'https://docs.cocos.com/creator/3.6/zh' },
@@ -2400,5 +2405,23 @@ function sidebar(): DefaultTheme.SidebarItem[] {
     //         "collapsed": true
     //     }
     // ]
-    return toc;
+    return sidebarFromGitbook;
+}
+
+export const zhSearch: DefaultTheme.LocalSearchOptions['locales'] = {
+    zh: {
+        translations: {
+            button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档',
+            },
+            modal: {
+                footer: {
+                    selectText: '选择',
+                    navigateText: '切换',
+                    closeText: '关闭'
+                }
+            }
+        }
+    }
 }
