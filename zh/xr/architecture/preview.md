@@ -6,7 +6,7 @@
 
 在 xr-plugin 的资源库中找到 XR Simulator，将其拖拽至场景中。
 
-<img src="preview/xr_web_simulator_prefab.png" alt="xr_web_simulator_prefab" style="zoom:50%;" />
+![preview/xr_web_simulator_prefab.png](preview/xr_web_simulator_prefab.png)
 
 在编辑器的预览选项中选择浏览器预览，并点击运行。
 
@@ -28,7 +28,7 @@
 
 v1.1.0 版本的预览组件新增无线串流模式，内容验证是项目开发过程中极其耗时的一环，由于 XR 设备的终端独立性和串流工具的封闭性，使得在编辑器中针对 XR 设备的项目比传统移动端/PC 端项目的内容调试验证更为困难。为此，Cocos CreatorXR v1.1.0 推出了无线串流调试功能，开发者可以直接在 Web 浏览器中预览XR项目并同步所有来自 XR 设备的信号，正确渲染实时画面并反馈各种控制器信号触发逻辑，无需打包应用至设备即可快速完整地体验所有XR项目内容。
 
-<img src="preview/xr_preview_by_wireless.png" alt="xr_preview_by_wireless" style="zoom:50%;" />
+![preview/xr_preview_by_wireless.png](preview/xr_preview_by_wireless.png)
 
 将 XR Preview Type 选择为 REMOTE 模式，XR Connect Type 选择为 WIFI 模式，将电脑和设备处于同一 WIFI 下。
 
@@ -36,7 +36,7 @@ v1.1.0 版本的预览组件新增无线串流模式，内容验证是项目开�
 
 在构建面板中勾选 Remote Preview，打包项目至XR一体机。
 
-<img src="preview/remote_preview_type.png" alt="remote_preview_type" style="zoom:50%;" />
+![preview/remote_preview_type.png](preview/remote_preview_type.png)
 
 项目预览方式选择浏览器预览。
 

@@ -6,7 +6,7 @@ To facilitate developers in real-time debugging and quickly verifying traditiona
 
 In the xr-plugin repository, find XR Simulator and drag it into the scene.
 
-<img src="preview/xr_web_simulator_prefab.png" alt="xr_web_simulator_prefab" style="zoom:50%;" />
+![preview/xr_web_simulator_prefab.png](preview/xr_web_simulator_prefab.png)
 
 Select the **Preview in Browser** option in the editor's preview settings and click to play.
 
@@ -31,7 +31,7 @@ When controlling the movement of the controllers, the forward vector always alig
 
 The preview component in version 1.1.0 introduces wireless streaming mode. Content validation is a time-consuming process during project development. Due to the independence of XR devices and the closed nature of streaming tools, debugging and validating XR projects in the editor is more challenging compared to traditional mobile/PC projects. To address this, Cocos CreatorXR v1.1.0 introduces wireless streaming debugging. Developers can directly preview XR projects in a web browser and synchronize all signals from the XR devices, rendering real-time visuals and providing feedback on various controller signal-triggering logic. It allows for a complete and quick experience of all XR project content without the need to package the application onto the device.
 
-<img src="preview/xr_preview_by_wireless.png" alt="xr_preview_by_wireless" style="zoom:50%;" />
+![preview/xr_preview_by_wireless.png](preview/xr_preview_by_wireless.png)
 
 Select REMOTE mode for XR Preview Type, and Wifi mode for XR Connect Type, and ensure that the computer and the device are on the same WIFI network.
 
@@ -39,7 +39,7 @@ Enter the XR device's IP address in the XR Device `IP` property.
 
 Check Remote Preview in the Build panel and package the project for the XR device.
 
-<img src="preview/remote_preview_type.png" alt="remote_preview_type" style="zoom:50%;" />
+![preview/remote_preview_type.png](preview/remote_preview_type.png)
 
 Choose **Preview in Browser** as the project preview method.
 

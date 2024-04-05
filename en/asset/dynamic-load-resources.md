@@ -57,7 +57,7 @@ For an atlas imported from a third-party tool such as TexturePacker, if you want
 
 ```typescript
 // load SpriteAtlas, and get one of them SpriteFrame
-// Note Atlas resource file (plist) usually of the same name and a picture file (PNG) placed in a directory,
+// Note Atlas resource file (plist) usually of the same name and a picture file .png) placed in a directory,
 // So should need to in the second parameter specifies the resource type.
 resources.load("test_assets/sheep", SpriteAtlas, (err, atlas) => {
     const frame = atlas.getSpriteFrame('sheep_down_0');

@@ -72,4 +72,4 @@ ev = <mlog>log</mlog> <sub>2</sub> (ApertureValue<sup>2</sup> / ShutterValue*k /
 
 ![hdr2](./camera/hdr2.png)
 
-若要启用场景 HDR 可以参考：[切换 HDR/LDR 模式](../../concepts/scene/skybox.md#E5%88%87%E6%8D%A2-hdrldr-%E6%A8%A1%E5%BC%8F)。
+若要启用场景 HDR 可以参考：[切换 HDR/LDR 模式](../../concepts/scene/skybox.md)。

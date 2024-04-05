@@ -35,23 +35,23 @@ First, create a complete XR proxy node in the scene for device tracking. Bind a 
 
 Add any node to the scene, using an empty node as an example. Add the Composition Layer component to it by clicking Add Component in the Inspector panel and finding **XR > Extra > XRCompositionLayer**.
 
-<img src="xr-composition-layer/add-empty-node.png" style="zoom:50%;" />
+![xr-composition-layer/add-empty-node](xr-composition-layer/add-empty-node.png)
 
-<img src="xr-composition-layer/add-composition-comp.png" alt="add-composition-comp" style="zoom:50%;" />
+![xr-composition-layer/add-composition-comp.png](xr-composition-layer/add-composition-comp.png)
 
 Create a Camera node in the scene and position it as desired.
 
-<img src="xr-composition-layer/add-camera.png" style="zoom:50%;" />
+![xr-composition-layer/add-camera](xr-composition-layer/add-camera.png)
 
 ![xr-composition-layer/change-camera-pos.png](xr-composition-layer/change-camera-pos.png)
 
 Set the Camera's Clear Flags to SOLID_COLOR and set the Clear Color's alpha value to 0.
 
-<img src="xr-composition-layer/set-clear-flags.png" style="zoom:50%;" />
+![xr-composition-layer/set-clear-flags](xr-composition-layer/set-clear-flags.png)
 
 Attach this Camera node to the `cc.XRCompositionLayer` component's Camera property of the node with the added `cc.XRCompositionLayer` component. Adjust the rendering resolution, scale size, and position of the camera. Try to ensure that the aspect ratio of the scale is the same as the aspect ratio of the rendering resolution; otherwise, the image may appear stretched. Set the Type in Layer Setting to Overlay and the Shape to Quad.
 
-<img src="xr-composition-layer/config-compositionlayer.png"  style="zoom:50%;" />
+![xr-composition-layer/config-compositionlayer.png](xr-composition-layer/config-compositionlayer.png)
 
 The result after packaging:
 

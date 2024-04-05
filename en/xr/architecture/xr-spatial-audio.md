@@ -16,7 +16,7 @@ XR Spatial Audio is an important technology in the virtual reality field that ca
 
 Select the node object to which you want to add audio, and add the component in the property manager **XR -> Extra -> XRSpatialAudioSource**.
 
-<img src="xr-spatial-audio/add-spatial-audio.png" style="zoom:50%;" />
+![xr-spatial-audio/add-spatial-audio](xr-spatial-audio/add-spatial-audio.png)
 
 ## Acknowledgments
 

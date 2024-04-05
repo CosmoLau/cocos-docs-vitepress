@@ -10,7 +10,7 @@ Cocos CreatorXR 的 AR 模块提供了一个全局管理器，用于收集当前
 
 ![plane-tracking-node](ar-manager/plane-tracking-node.png)
 
-<img src="ar-manager/plane-feature-manager.png" alt="plane-feature-manager" style="zoom:50%;" />
+![ar-manager/plane-feature-manager.png](ar-manager/plane-feature-manager.png)
 
 Direction Type 汇集了当前场景所有平面代理需要识别的平面朝向。
 
@@ -28,7 +28,7 @@ Unsupported Event 会在设备不支持平面追踪时触发，用户可以根�
 
 ![image-feature-node](ar-manager/image-feature-node.png)
 
-<img src="ar-manager/image-feature-manager.png" alt="image-feature-manager" style="zoom:50%;" />
+![ar-manager/image-feature-manager.png](ar-manager/image-feature-manager.png)
 
 Max Tracking Number 表示当前镜头内可同时追踪图片的最大数量，可以根据需要动态修改此值。
 
@@ -44,7 +44,7 @@ Unsupported Event 会在设备不支持图像追踪时触发，用户可以根�
 
 当您在场景中创建一个或多个 Meshing 节点，AR Manager 中的 Configuration 会新增 Meshing Feature 属性。由于 Meshing 功能处于实验性阶段且支持环境重构的设备硬件要求较高，暂不支持对此做特性做参数控制。
 
-<img src="ar-manager/meshing-manager.png" alt="meshing-manager" style="zoom:50%;" />
+![ar-manager/meshing-manager.png](ar-manager/meshing-manager.png)
 
 Normals 默认开启，可以根据 Mesh 信息获取法线向量。
 

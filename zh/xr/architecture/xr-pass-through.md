@@ -18,11 +18,11 @@ XR 扩展提供了专门用于渲染透视图像的层，同时使用合成层�
 
 调整 **XR HMD** 节点 Camera 组件的 Clear Flags 为 SOLID_COLOR，Clear Color 的不透明度调为 0。
 
-<img src="xr-pass-through/set-hmd-camera.png" style="zoom:50%;" />
+![xr-pass-through/set-hmd-camera](xr-pass-through/set-hmd-camera.png)
 
 为 XR HMD 节点添加透视组件，找到 **XR > Extra > XRPassThroughLayer**，点击添加。
 
-<img src="xr-pass-through/add-pass-throught-layer.png" style="zoom:50%;" />
+![xr-pass-through/add-pass-throught-layer](xr-pass-through/add-pass-throught-layer.png)
 
 要想将透视视频图像显示在所有3D内容之下，**Placement** 属性请选择为 **Underlay**。
 

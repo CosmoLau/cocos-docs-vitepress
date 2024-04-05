@@ -48,7 +48,7 @@ Dashboard 中新建项目，编辑器版本选择 v3.7.1 或更高，案例类�
 
    选中 XR Agent 节点，在属性检查器中点击“添加组件”，添加 XR -> AR Tracking -> ARSession 和 XR -> AR Tracking -> ARManager。
 
-   <img src="ar-proj-deploy/set-ar-comp.png" alt="set-ar-comp" style="zoom:50%;" />
+   ![ar-proj-deploy/set-ar-comp.png](ar-proj-deploy/set-ar-comp.png)
 
 2. 对于空场景或现有项目，可以直接选中场景中主摄像机，右键选择转为 AR Camera，即可得到上述默认的结构。
 
@@ -62,7 +62,7 @@ XR Agent 和 AR Camera 及其组件在 AR 项目中扮演着重要的角色。�
 
 选中 XR Agent，点击 Add Component 添加 ARSession 和 ARManager 组件。
 
-<img src="ar-proj-deploy/spaces-add-ar-comp.png" alt="spaces-add-ar-comp" style="zoom:50%;" />
+![ar-proj-deploy/spaces-add-ar-comp.png](ar-proj-deploy/spaces-add-ar-comp.png)
 
 可以参考 [平面追踪](../architecture/ar-tracking-component.md#平面追踪) 和 [图像追踪](../architecture/ar-tracking-component.md#图像追踪) 给应用做AR赋能。
 

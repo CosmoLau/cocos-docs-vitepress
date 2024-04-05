@@ -186,9 +186,9 @@ The following are some of the commonly used fade methods:
 - `quadInOut`: fading from slow to fast to slow again
 - `quadOutIn`: fade from fast to slow to fast
 
-<script src="./easing-method-example.js"> </script>
+<!-- <script src="./easing-method-example.js"> </script>
 <button onclick="onEasingMethodExampleButtonClicked()">Expand Comparison</button>
-<div id="easing-method-example-panel"> </div>
+<div id="easing-method-example-panel"> </div> -->
 
 ### Curve values and interpolation methods
 
@@ -313,8 +313,8 @@ Different wrap modes can be set for Animation Clips by setting `AnimationClip.wr
 | Property | Description |
 | :--- | :--- |
 | Normal | Playback stops at the end |
-| WrapMode.Loop | Loop
-| PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on.
+| WrapMode.Loop | Loop |
+| PingPong | Play from the beginning to the end of the animation, then play back to the beginning from the end, and so on. |
 
 For more wrap modes, please refer to the [WrapMode](__APIDOC__/en/class/AnimationState?id=wrapMode) API and the [Wrap Mode and Repeat Count](./animation-state.md#wrap-mode-and-repeat-count) documentation.
 

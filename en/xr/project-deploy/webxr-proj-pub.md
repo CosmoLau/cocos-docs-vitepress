@@ -6,11 +6,11 @@ After completing the [WebXR Project Setup](webxr-proj-deploy.md) and finishing t
 
 Choose **Web-Mobile** as the target build platform.
 
-<img src="webxr-proj-pub/select-web-mobile.png" style="zoom:50%;" />
+![webxr-proj-pub/select-web-mobile](webxr-proj-pub/select-web-mobile.png)
 
 Enable the `WebXR` option in the **Build** panel.
 
-<img src="webxr-proj-pub/enable-webxr.png" style="zoom:50%;" />
+![webxr-proj-pub/enable-webxr](webxr-proj-pub/enable-webxr.png)
 
 Click on **Build** to proceed.
 
@@ -28,7 +28,7 @@ Place the .pem file in the root directory of the build folder.
 
 In the command terminal, navigate to this directory and enter the command: `https-server -S`. This will start the HTTPS server.
 
-<img src="webxr-proj-pub/start-https-server.png" style="zoom:50%;" />
+![webxr-proj-pub/start-https-server](webxr-proj-pub/start-https-server.png)
 
 ## Select Compatible Devices and Browsers
 

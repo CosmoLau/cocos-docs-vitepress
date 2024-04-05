@@ -8,7 +8,7 @@ AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入
 
 想要使用 **屏幕手势交互器**，在层级管理器中右键创建 **XR -> Screen Touch Interactor** 。
 
-<img src="ar-interaction/screen-touch-interactor-node.png" alt="screen-touch-interactor-node" style="zoom:50%;" />
+![ar-interaction/screen-touch-interactor-node.png](ar-interaction/screen-touch-interactor-node.png)
 
 随意创建一个 3D 物体（以 Cube 为例）。
 
@@ -16,7 +16,7 @@ AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入
 
 ![create-3d-obj](ar-interaction/create-3d-obj.png)
 
-<img src="ar-interaction/add-selectable.png" alt="add-selectable" style="zoom:50%;" />
+![ar-interaction/add-selectable.png](ar-interaction/add-selectable.png)
 
 下面创建选中效果，在资源文件夹中创建一个预置体，命名为 Selected Visualizer。
 
@@ -32,7 +32,7 @@ AR 手势交互器组件将屏幕触摸转换为手势。Cocos Creator 的输入
 
 调整材质效果，建议 Effect 选择 builtin-unlit，Technique 选择 1-transparent。
 
-<img src="ar-interaction/adjust-material.png" alt="adjust-material" style="zoom:50%;" />
+![ar-interaction/adjust-material.png](ar-interaction/adjust-material.png)
 
 材质创建完毕后，应用到预置体中 Cube 的 cc.MeshRenderer 中，即可完成选中效果的创建。
 

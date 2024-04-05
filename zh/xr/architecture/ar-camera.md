@@ -6,7 +6,7 @@
 
 AR Camera 对象包含三种必要的组件：cc.Camera、cc.PoseTracker和cc.ARCameraMgr。
 
-<img src="ar-camera/ar-camera-comp.png" alt="ar-camera-comp" style="zoom:50%;" />
+![ar-camera/ar-camera-comp.png](ar-camera/ar-camera-comp.png)
 
 cc.Camera 是 Cocos Creator 引擎提供的传统的摄像机组件，为了保证良好的体验，推荐将缓冲清除标志位（Clear Flags）设置为 SOLID_COLOR，近裁剪面（Near Plane）设置为0.01。更多相机参数介绍请查阅 [相机组件](../../editor/components/camera-component.md#相机组件) 介绍。
 

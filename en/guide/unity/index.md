@@ -339,7 +339,7 @@ Defining Shader Objects.
 
 - CocosCreator Shader:
 
-  ```
+  ```yaml
   CCProgram <name> %{
 
       <in parameters>

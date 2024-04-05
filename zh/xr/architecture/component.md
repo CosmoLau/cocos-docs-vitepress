@@ -34,7 +34,7 @@ Cocos CreatorXR 的功能组件主要由 5 部分构成：
 
 HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具备双目立体绘图能力的 XR 眼镜设备都属于 HMD 的大范畴，因此此组件定义了 XR 眼镜的图像渲染输出相关参数。
 
-<img src="component/hmd.png" alt="hmd" style="zoom: 55%;" />
+![component/hmd.png](component/hmd.png)
 
 | 属性           | 说明                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -102,7 +102,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 射线交互器组件。
 
-<img src="component/ray_interactor.png" alt="ray_interactor" style="zoom:50%;" />
+![component/ray_interactor.png](component/ray_interactor.png)
 
 | 属性                     | 说明                                                         |
 | ------------------------ | ------------------------------------------------------------ |
@@ -141,7 +141,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 凝视交互器，如果没有手柄或者其他控制器的话，可以用 HMD 的中心点凝视交互物（UI），凝视一段时间后出发交互行为。
 
-<img src="component/xr_gaze_interactor.png" alt="xr_gaze_interactor" style="zoom: 67%;" />
+![component/xr_gaze_interactor.png](component/xr_gaze_interactor.png)
 
 | 属性                    | 说明                         |
 | ----------------------- | ---------------------------- |
@@ -157,7 +157,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 屏幕手势交互器
 
-<img src="component/screen_touch_interactor.png" alt="screen_touch_interactor" style="zoom:50%;" />
+![component/screen_touch_interactor.png](component/screen_touch_interactor.png)
 
 | 行为          | 属性              | 说明                                                         |
 | ------------- | ----------------- | ------------------------------------------------------------ |
@@ -224,7 +224,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 挂载此组件的对象可以被选中，且可以在选中状态下发生位移、旋转或放缩行为。
 
-<img src="component/selectable.png" alt="selectable" style="zoom:50%;" />
+![component/selectable.png](component/selectable.png)
 
 | 属性                   | 说明                                         |
 | ---------------------- | -------------------------------------------- |
@@ -238,7 +238,7 @@ HMD（Head Mounted Display）头戴显示设备控制器，可以认为所有具
 
 挂载此组件的对象可以使用某种方式放置于空间、AR Plane 或 AR Mesh 上。
 
-<img src="component/placeable.png" alt="placeable" style="zoom:50%;" />
+![component/placeable.png](component/placeable.png)
 
 | 属性                     | 说明                                         |
 | ------------------------ | -------------------------------------------- |
@@ -306,7 +306,7 @@ Audio Events 可以根据 **事件信号** 选择不同类型的事件触发，�
 
 > **注意**：此事件要求扩展版本 **>=v1.1.0**，编辑器版本 **>=3.7.1**
 
-<img src="component/haptic_event.png" alt="haptic_event" style="zoom:50%;" />
+![component/haptic_event.png](component/haptic_event.png)
 
 选中 **事件信号** 右侧的单选框后，可以调整控制器的震动反馈，通过震动可以给与用户更真实的触感反馈。
 
@@ -341,7 +341,7 @@ Duration：持续的时长
 
 ### MinMaxScaleConstrain
 
-<img src="component/min_max_scale_constrain.png" alt="min_max_scale_constrain" style="zoom:50%;" />
+![component/min_max_scale_constrain.png](component/min_max_scale_constrain.png)
 
 | 属性      | 说明                     |
 | --------- | ------------------------ |
@@ -350,7 +350,7 @@ Duration：持续的时长
 
 ### RotationAxisConstrain
 
-<img src="component/rotate_axis_constrain.png" alt="rotate_axis_constrain" style="zoom:50%;" />
+![component/rotate_axis_constrain.png](component/rotate_axis_constrain.png)
 
 | 属性            | 说明                                                         |
 | --------------- | ------------------------------------------------------------ |
@@ -432,7 +432,7 @@ XR UI 是基于 2D UI 扩展而来，关于如何使用 2D/UI 组件可参考 2D
 
 在 **层级管理器 -> 创建 -> XR -> XRUI** 可以添加 XRUI。
 
-<img src="component/create_xrui.png" alt="create_xrui" style="zoom: 75%;" />
+![component/create_xrui.png](component/create_xrui.png)
 
 相比于传统的 UI 控件，XR UI 会新增一些组件用于计算碰撞检测以触发交互，如图示，RaycastChecker 和 BoxCollider 可使其能够接收 XR 输入：相比于传统的 UI 控件，XR UI 会新增一些组件用于计算碰撞检测以触发交互，如图示，RaycastChecker 和 BoxCollider 可使其能够接收 XR 输入：
 

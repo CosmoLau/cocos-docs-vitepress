@@ -8,13 +8,13 @@ Each automated behavior editing component for a specific feature has its own uni
 
 Right-click in the **Hierarchy** panel and choose **Create -> XR -> Plane Tracking** to create a plane agent node that can describe a plane entity in the physical world.
 
-<img src="ar-tracking-component/create-plane-tracking-node.png" alt="create-plane-tracking-node" style="zoom:50%;" />
+![ar-tracking-component/create-plane-tracking-node.png](ar-tracking-component/create-plane-tracking-node.png)
 
 Select the created **Plane Tracking** node, and in the **Inspector** panel, you can see the default `cc.ARPlaneTracking` component that has been added. Select the **Factor** or **Action** tab to view the existing features or actions. Click "Add Factor" or "Add Action" to add new items from the feature library or action library.
 
-<img src="ar-tracking-component/plane-tracking-factors.png" alt="plane-tracking-factors" style="zoom:50%;" />
+![ar-tracking-component/plane-tracking-factors.png](ar-tracking-component/plane-tracking-factors.png)
 
-<img src="ar-tracking-component/plane-tracking-actions.png" alt="plane-tracking-actions" style="zoom:50%;" />
+![ar-tracking-component/plane-tracking-actions.png](ar-tracking-component/plane-tracking-actions.png)
 
 Drag the virtual object that needs to be displayed under the created **Plane Tracking** node and adjust its `size` and `scale` accordingly. Add the **Display** action item in the **Actions** section (already added by default), and the virtual object will be displayed when a plane that meets the conditions is recognized during runtime.
 
@@ -28,11 +28,11 @@ Drag the virtual object that needs to be displayed under the created **Plane Tra
 
 Right-click in the Hierarchy and select **Create -> XR -> Image Tracking** to create an image agent node that can describe an image entity in the physical world.
 
-<img src="ar-tracking-component/image-tracking-node.png" alt="image-tracking-node" style="zoom:50%;" />
+![ar-tracking-component/image-tracking-node.png](ar-tracking-component/image-tracking-node.png)
 
 Select the created **Image Tracking** node, and in the Inspector panel, you can see the default `cc.ARImageTracking` component that has been added. In the **Factor** tab, under the `Image Source` property, add a new image resource.
 
-<img src="ar-tracking-component/image-tacking-comp.png" alt="image-tacking-comp" style="zoom:50%;" />
+![ar-tracking-component/image-tacking-comp.png](ar-tracking-component/image-tacking-comp.png)
 
 Drag and drop or directly select an image resource from the `Assets` window in the `Image` property. In the scene editor, you can see the currently referenced image and set its default physical size.
 
@@ -50,11 +50,11 @@ Currently, the **Meshing** feature only works on iOS devices with depth scene re
 
 Right-click in the Hierarchy and select **Create -> XR -> Meshing** to create a Meshing agent node.
 
-<img src="ar-tracking-component/meshing-node.png" alt="meshing-node" style="zoom:50%;" />
+![ar-tracking-component/meshing-node.png](ar-tracking-component/meshing-node.png)
 
 In the `cc.ARMeshing` component's `Mesh Visualizer` property, select the desired mesh visualization effect.
 
-<img src="ar-tracking-component/meshing-comp.png" alt="meshing-comp" style="zoom:50%;" />
+![ar-tracking-component/meshing-comp.png](ar-tracking-component/meshing-comp.png)
 
 This will enable real-time surface meshing based on the physical environment during runtime.
 

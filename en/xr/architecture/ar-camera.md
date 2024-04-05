@@ -6,7 +6,7 @@ Similar to head-mounted displays, to abstract the camera with AR capabilities on
 
 The AR Camera object consists of three essential components: `cc.Camera`, `cc.PoseTracker`, and `cc.ARCameraMgr`.
 
-<img src="ar-camera/ar-camera-comp.png" alt="ar-camera-comp" style="zoom:50%;" />
+![ar-camera/ar-camera-comp.png](ar-camera/ar-camera-comp.png)
 
 ## cc.Camera
 

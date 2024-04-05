@@ -69,19 +69,19 @@ The callback order and timing of a collision callback function can be viewed by 
 
 <table>
 <tbody>
-<tr>
+<tr style = 'border: 1px'>
 Collision Procedure
 </tr>
 <tr>
 <td style="padding:4px;width:256px;vertical-align:middle;border:1px solid black;text-align:center">
 Collision 1<br>
-<img src="./image/collision-callback-order-1.png"></img>
+![./image/collision-callback-order-1.png](./image/collision-callback-order-1.png)
 <div style="height:4px"></div>
 Collision 2<br>
-<img src="./image/collision-callback-order-2.png"></img>
+![./image/collision-callback-order-2.png](./image/collision-callback-order-2.png)
 <div style="height:4px"></div>
 Collision 3<br>
-<img src="./image/collision-callback-order-3.png"></img>
+![./image/collision-callback-order-3.png](./image/collision-callback-order-3.png)
 </td>
 <td style="padding:4px;border:1px solid black">
     When two colliders intersect with each other, Box2D's default behavior is to give them an impulse so that they can get away with each other. But the behavior may not be complete in a single physics cycle. As shown here, the colliders in the example will cover each other for three physics cycles until the "bounce" is complete and they are separated from each other. In this time we can customize the behavior we want. <b>onPreSolve</b> will call back each time before the physics engine processes a collision. You can modify the crash information in this callback.  <b>onPostSolve</b> will call back after the collision is processed. In this callback we can get information about the impulse of the collision as calculated by the physics engine.<br>
@@ -105,7 +105,7 @@ Collision 3<br>
     ...
 </pre>
 </td>
-<tr>
+</tr>
 </tbody>
 </table>
 

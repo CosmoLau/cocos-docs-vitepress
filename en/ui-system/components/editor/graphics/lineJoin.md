@@ -19,7 +19,7 @@ ctx.lineTo(20,100);
 ctx.stroke();
 ```
 
-<a href="lineJoin.png"><img src="lineJoin.png"></a>
+![lineJoin.png](lineJoin.png)
 
 <hr>
 

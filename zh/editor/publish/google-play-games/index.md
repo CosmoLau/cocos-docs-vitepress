@@ -52,7 +52,7 @@
 
     对于大屏幕的设备的适配工作，您可以参考谷歌 [适用于大屏设备开发的响应式布局](https://developer.android.com/large-screens)。
 
-    <img src="./index/hyper-resolution.png" width="50%" height="50%"></img>
+    ![./index/hyper-resolution.png" width="50%" height="50%](./index/hyper-resolution.png" width="50%" height="50%)
 
 9. GPG 要求支持 16:9 的长宽比。为了获得理想的玩家体验，游戏还应支持 21：9、16：10 和 3：2。
 纵向模式的游戏只需要支持 9:16 的长宽比。如果你的游戏缺乏横向支持，Google Play Games会在全屏模式下渲染黑条。同样可以参考上述的 **Widget** 组件部分。

@@ -77,7 +77,7 @@ Cocos Creator 提供不同类型的模板和示例，您可以点击 **模板** 
 
 在 Cocos Creator 中创建脚本是非常简单的，您只需要在 **资源管理器** 窗口上点击右键，选择 **创建** 并点击 **脚本** 项即可。
 
-<img src='images/create-fist-script.png' width='64%' height='64%'></img>
+![images/create-fist-script.png](images/create-fist-script.png)
 
 通常我们会选择创建一个新的目录来存放这些脚本，接下来我们将创建一个名为 'Scripts' 的目录并新建一个名为 `PlayerController` 的脚本用于控制角色：
 

@@ -39,7 +39,7 @@ It will check the start tag name, but the end tag name restrict is loose, it onl
 
 Here is an example of the `size` and `color` tag:
 
-`<color=green>Hello</color>, <size=50>Creator</>`
+`<color=green>Hello</color>, <size=50>Creator</size>`
 
 ### Supported tags
 

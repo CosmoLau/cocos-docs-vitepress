@@ -50,7 +50,7 @@ We recommend two methods to configure the scene, and you can choose either one:
 
    Select the XR Agent node and click "Add Component" in the Inspector to add **XR -> AR Tracking -> ARSession** and **XR -> AR Tracking -> ARManager**.
 
-   <img src="ar-proj-deploy/set-ar-comp.png" alt="set-ar-comp" style="zoom:50%;" />
+   ![ar-proj-deploy/set-ar-comp.png](ar-proj-deploy/set-ar-comp.png)
 
 2. For an empty scene or an existing project, you can directly select the main camera in the scene, right-click, and choose Convert to AR Camera to obtain the default structure mentioned above.
 
@@ -64,7 +64,7 @@ Create a new empty scene and right-click the Main Camera in the scene to convert
 
 Select the XR Agent and click Add Component to add `ARSession` and `ARManager` components.
 
-<img src="ar-proj-deploy/spaces-add-ar-comp.png" alt="spaces-add-ar-comp" style="zoom:50%;" />
+![ar-proj-deploy/spaces-add-ar-comp.png](ar-proj-deploy/spaces-add-ar-comp.png)
 
 You can refer to [Plane Tracking](../architecture/ar-tracking-component.md#plane-tracking) and [Image Tracking](../architecture/ar-tracking-component.md#image-tracking) to empower your application with AR capabilities.
 

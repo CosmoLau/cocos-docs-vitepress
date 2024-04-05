@@ -16,7 +16,7 @@ XR 空间音频是虚拟现实领域中的一项重要技术，它可以模拟�
 
 选择想要添加音频的节点对象，在属性管理器中添加组件：**XR > Extra > XRSpatialAudioSource**
 
-<img src="xr-spatial-audio/add-spatial-audio.png" style="zoom:50%;" />
+![xr-spatial-audio/add-spatial-audio](xr-spatial-audio/add-spatial-audio.png)
 
 ## 声明
 

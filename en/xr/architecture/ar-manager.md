@@ -10,7 +10,7 @@ When you create one or more Plane Tracking nodes in the scene, the `Configuratio
 
 ![plane-tracking-node](ar-manager/plane-tracking-node.png)
 
-<img src="ar-manager/plane-feature-manager.png" alt="plane-feature-manager" style="zoom:50%;" />
+![ar-manager/plane-feature-manager.png](ar-manager/plane-feature-manager.png)
 
 - `Direction Type`: Collects the orientations of all plane proxies that need to be recognized in the current scene.
 
@@ -28,7 +28,7 @@ When you create one or more `Image Tracking` nodes in the scene, the `Configurat
 
 ![image-feature-node](ar-manager/image-feature-node.png)
 
-<img src="ar-manager/image-feature-manager.png" alt="image-feature-manager" style="zoom:50%;" />
+![ar-manager/image-feature-manager.png](ar-manager/image-feature-manager.png)
 
 The `Max Tracking Number` on each platform represents the maximum number of images that can be simultaneously tracked within the camera's field of view. This value can be dynamically modified as needed.
 
@@ -44,7 +44,7 @@ The `Unsupported Event` will be triggered when image tracking is not supported b
 
 When you create one or more `Meshing` nodes in the scene, the `Meshing Feature` property will be added to the `ARManager`'s configuration. Since the Meshing feature is experimental and requires high hardware requirements for environmental reconstruction, it does not currently support parameter control for this feature.
 
-<img src="ar-manager/meshing-manager.png" alt="meshing-manager" style="zoom:50%;" />
+![ar-manager/meshing-manager.png](ar-manager/meshing-manager.png)
 
 `Normals` are enabled by default, allowing you to obtain normal vectors based on the mesh information.
 

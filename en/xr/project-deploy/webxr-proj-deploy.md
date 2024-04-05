@@ -14,7 +14,7 @@ Choose the default `Session Mode` based on your needs:
 - IMMERSIVE_VR: The session's rendering of the scene will not be overlaid or blended with the real-world environment.
 - INLINE: The 3D content will be displayed inline within the element context of a standard HTML document, without occupying the entire visual space. Inline sessions can be rendered on both monoscopic and stereoscopic devices, and they do not require positional tracking. Inline sessions can be used on any [User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) that supports the WebXR API.
 
-<img src="webxr-proj-deploy/add-wenxr-session-ctrl.png" style="zoom:50%;" />
+![webxr-proj-deploy/add-wenxr-session-ctrl](webxr-proj-deploy/add-wenxr-session-ctrl.png)
 
 ## WebXR Examples
 
@@ -24,4 +24,4 @@ The main WebXR scene for the VR example is "webxr-main". Make sure to set this s
 
 The main WebXR scene for the AR (mobile) example is also "webxr-main". Make sure to set this scene as the startup scene. Other scenes are shown below.
 
-<img src="webxr-proj-deploy/ar-scenes.png" style="zoom:50%;" />
+![webxr-proj-deploy/ar-scenes](webxr-proj-deploy/ar-scenes.png)

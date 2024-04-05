@@ -8,7 +8,7 @@ The AR gesture interactor component converts screen touches into gestures. Cocos
 
 To use the **Screen Touch Interactor**, right-click in the Hierarchy and create **XR -> Screen Touch Interactor**.
 
-<img src="ar-interaction/screen-touch-interactor-node.png" alt="screen-touch-interactor-node" style="zoom:50%;" />
+![ar-interaction/screen-touch-interactor-node.png](ar-interaction/screen-touch-interactor-node.png)
 
 Create a 3D object of your choice (using a Cube as an example).
 
@@ -16,7 +16,7 @@ Modify the `scale` property of the Cube to (0.1, 0.1, 0.1), making it an actual 
 
 ![create-3d-obj](ar-interaction/create-3d-obj.png)
 
-<img src="ar-interaction/add-selectable.png" alt="add-selectable" style="zoom:50%;" />
+![ar-interaction/add-selectable.png](ar-interaction/add-selectable.png)
 
 Next, let's create a selection effect.
 
@@ -34,7 +34,7 @@ Create a new material to highlight the selected state.
 
 Adjust the material settings. It is recommended to select "builtin-unlit" for the `effect` and "1-transparent" for the `technique`.
 
-<img src="ar-interaction/adjust-material.png" alt="adjust-material" style="zoom:50%;" />
+![ar-interaction/adjust-material.png](ar-interaction/adjust-material.png)
 
 After creating the material, apply it to the `cc.MeshRenderer` of the Cube in the prefab to complete the selection effect.
 

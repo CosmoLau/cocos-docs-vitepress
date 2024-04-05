@@ -4,7 +4,7 @@ After enabling the XR extension in the Cocos Creator Extension Manager, you can 
 
 Right-click in the Hierarchy and select **Create -> XR**. On the right menu, you will see all the available XR prefabs that you can create instances of in the scene.
 
-<img src="assets/create_xr_node.png" alt="create_xr_node" style="zoom:50%;" />
+![assets/create_xr_node.png](assets/create_xr_node.png)
 
 |Name|Description|Components|
 | ---------------------------------------------- | --------------------------------------------------- | ----------------------------------- |

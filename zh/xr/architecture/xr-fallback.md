@@ -29,7 +29,7 @@ OS版本在Android8.0及以上
 
 2. 添加降级行为效果：在cc.ARPlaneTracking下的Action中新增一个Fallback的行为。
 
-   <img src="xr-fallback/native-add-fallback.png" style="zoom:50%;" />
+   ![xr-fallback/native-add-fallback](xr-fallback/native-add-fallback.png)
 
 3. 编辑降级效果：
 

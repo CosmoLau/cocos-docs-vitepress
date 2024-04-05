@@ -14,7 +14,7 @@ WebXR 项目的创建和普通XR项目创建流程保持一致。
 - IMMERSIVE_VR：Session 对场景的渲染不会被被覆盖或融入现实环境。
 - INLINE：3D 内容输出在标准 HTML 文档的元素上下文中内联显示，而不会占据整个视觉空间。inline session 既可以在单目渲染的设备呈现，也可以在双目立体渲染的设备中呈现；而且不关心设备是否可进行位姿追踪。inline session 不需要特殊的设备，在任何提供 WebXR API支持的 [用户代理](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) 上都可以使用。
 
-<img src="webxr-proj-deploy/add-wenxr-session-ctrl.png" style="zoom:50%;" />
+![webxr-proj-deploy/add-wenxr-session-ctrl](webxr-proj-deploy/add-wenxr-session-ctrl.png)
 
 ## WebXR 案例
 
@@ -24,4 +24,4 @@ VR案例的 WebXR 主场景为 webxr-main，启动时务必将此场景设为启
 
 AR （移动端）案例的 WebXR 主场景为 webxr-main，启动时务必将此场景设为启动场景，其他场景如下所示。
 
-<img src="webxr-proj-deploy/ar-scenes.png" style="zoom:50%;" />
+![webxr-proj-deploy/ar-scenes](webxr-proj-deploy/ar-scenes.png)

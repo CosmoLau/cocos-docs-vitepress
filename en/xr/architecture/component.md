@@ -32,7 +32,7 @@ The main components are as following:
 
 HMD (Head Mounted Display) controller is responsible for handling the head-mounted display devices. It can be considered as the general category for XR glasses devices that have the capability of rendering stereoscopic images. This component defines the parameters related to the rendering output for XR glasses.
 
-<img src="component/hmd.png" alt="hmd" style="zoom: 55%;" />
+![component/hmd.png](component/hmd.png)
 
 | Property           | Description                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -100,7 +100,7 @@ An interaction operation requires coordination between two objects: the interact
 
 RayInteractor is a component for ray-based interaction.
 
-<img src="component/ray_interactor.png" alt="ray_interactor" style="zoom:50%;" />
+![component/ray_interactor.png](component/ray_interactor.png)
 
 | Property                     | Description                                                         |
 | ------------------------ | ------------------------------------------------------------ |
@@ -139,7 +139,7 @@ DirectInteractor is a component for direct interaction.
 
 GazeInteractor allows interaction with objects (UI) by gazing at them with the center point of the HMD when there are no controllers or other input devices available. After gazing for a certain period, the interaction behavior is triggered.
 
-<img src="component/xr_gaze_interactor.png" alt="xr_gaze_interactor" style="zoom: 67%;" />
+![component/xr_gaze_interactor.png](component/xr_gaze_interactor.png)
 
 | Property                    | Description                         |
 | ----------------------- | ---------------------------- |
@@ -155,7 +155,7 @@ GazeInteractor allows interaction with objects (UI) by gazing at them with the c
 
 ScreenTouchInteractor is a component for screen gesture interaction.
 
-<img src="component/screen_touch_interactor.png" alt="screen_touch_interactor" style="zoom:50%;" />
+![component/screen_touch_interactor.png](component/screen_touch_interactor.png)
 
 | Action          | Property              | Description                                                         |
 | ------------- | ----------------- | ------------------------------------------------------------ |
@@ -223,7 +223,7 @@ The Teleportable component allows an object to be teleported.
 
 The Selectable component allows an object to be selected and enables displacement, rotation, and scaling actions while selected.
 
-<img src="component/selectable.png" alt="selectable" style="zoom:50%;" />
+![component/selectable.png](component/selectable.png)
 
 | Property                   | Description                                         |
 | ---------------------- | -------------------------------------------- |
@@ -237,7 +237,7 @@ The Selectable component allows an object to be selected and enables displacemen
 
 The Placeable component allows an object to be placed in space, on an AR Plane, or an AR Mesh using a specified method.
 
-<img src="component/placeable.png" alt="placeable" style="zoom:50%;" />
+![component/placeable.png](component/placeable.png)
 
 | 属性                     | 说明                                         |
 | ------------------------ | -------------------------------------------- |
@@ -305,7 +305,7 @@ By enabling or disabling the event signals on the right side, you can select whi
 
 > **Note**: This event requires an extension version of >= v1.1.0 and the Cocos Creator version of >=3.7.1.
 
-<img src="component/haptic_event.png" alt="haptic_event" style="zoom:50%;" />
+![component/haptic_event.png](component/haptic_event.png)
 
 By selecting the radio button on the right side of the event signals, you can adjust the controller's vibration feedback. Vibration feedback can provide users with a more realistic tactile experience.
 
@@ -340,7 +340,7 @@ For interactive objects that have the `Selectable` component attached, you can u
 
 ### MinMaxScaleConstrain
 
-<img src="component/min_max_scale_constrain.png" alt="min_max_scale_constrain" style="zoom:50%;" />
+![component/min_max_scale_constrain.png](component/min_max_scale_constrain.png)
 
 | Property      | Description                     |
 | --------- | ------------------------ |
@@ -349,7 +349,7 @@ For interactive objects that have the `Selectable` component attached, you can u
 
 ### RotationAxisConstrain
 
-<img src="component/rotate_axis_constrain.png" alt="rotate_axis_constrain" style="zoom:50%;" />
+![component/rotate_axis_constrain.png](component/rotate_axis_constrain.png)
 
 | Property            | Description                                                         |
 | --------------- | ------------------------------------------------------------ |
@@ -433,7 +433,7 @@ XR UI is an extension of 2D UI and can be created by adding the XRUI component. 
 
 To create XR UI, go to **Hierarchy -> Create -> XR -> XRUI**.
 
-<img src="component/create_xrui.png" alt="create_xrui" style="zoom: 75%;" />
+![component/create_xrui.png](component/create_xrui.png)
 
 Compared to traditional UI controls, XR UI introduces additional components for collision detection and interaction. As shown in the image, the RaycastChecker and BoxCollider components enable XR input interaction with the UI.
 

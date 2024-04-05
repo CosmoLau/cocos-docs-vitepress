@@ -8,13 +8,13 @@ AR 场景中，虚拟物体与现实实体间总是存在未知的依赖关系�
 
 在编辑器的层级管理器中右键 **创建 -> XR -> Plane Tracking**，创建平面代理节点，此节点可用于描述物理世界中的某一个平面实体。
 
-<img src="ar-tracking-component/create-plane-tracking-node.png" alt="create-plane-tracking-node" style="zoom:50%;" />
+![ar-tracking-component/create-plane-tracking-node.png](ar-tracking-component/create-plane-tracking-node.png)
 
 选中创建好的 Plane Tracking 节点，在属性检查器中可以看到默认添加好的 cc.ARPlaneTracking，选择 Factor 或 Action 页签可以查看当前已有的特征或行为项。点击 Add Factor 或 Add Action 可以添加特征库/行为库中其他的新项。
 
-<img src="ar-tracking-component/plane-tracking-factors.png" alt="plane-tracking-factors" style="zoom:50%;" />
+![ar-tracking-component/plane-tracking-factors.png](ar-tracking-component/plane-tracking-factors.png)
 
-<img src="ar-tracking-component/plane-tracking-actions.png" alt="plane-tracking-actions" style="zoom:50%;" />
+![ar-tracking-component/plane-tracking-actions.png](ar-tracking-component/plane-tracking-actions.png)
 
 在创建好的 Plane Tracking 节点下拖入需要展示的虚拟物体，调整为合适的大小比例。在 Action 中添加 Display 行为项（默认已经添加），即可在运行时识别到满足条件的平面后展示出虚拟物体。
 
@@ -28,11 +28,11 @@ AR 场景中，虚拟物体与现实实体间总是存在未知的依赖关系�
 
 在编辑器的层级列表中右键 **创建 -> XR -> Image Tracking**，创建图像代理节点，此节点可用于描述物理世界中的某一个图像实体。
 
-<img src="ar-tracking-component/image-tracking-node.png" alt="image-tracking-node" style="zoom:50%;" />
+![ar-tracking-component/image-tracking-node.png](ar-tracking-component/image-tracking-node.png)
 
 选中创建好的 Plane Tracking 节点，在属性检查器中可以看到默认添加好的 cc.ARImageTracking，在 Factor 页签的 Image Source 属性中新增一个图像资源。
 
-<img src="ar-tracking-component/image-tacking-comp.png" alt="image-tacking-comp" style="zoom:50%;" />
+![ar-tracking-component/image-tacking-comp.png](ar-tracking-component/image-tacking-comp.png)
 
 在 Image 属性中拖入或直接选择资源管理器中的图片资源，在编辑器场景中可以看到当前引用的图像，设置图像的默认的物理尺寸。
 
@@ -50,11 +50,11 @@ AR 场景中，虚拟物体与现实实体间总是存在未知的依赖关系�
 
 在编辑器的层级列表中右键 **创建 -> XR -> Meshing**，创建网格化代理节点。
 
-<img src="ar-tracking-component/meshing-node.png" alt="meshing-node" style="zoom:50%;" />
+![ar-tracking-component/meshing-node.png](ar-tracking-component/meshing-node.png)
 
 在 cc.ARMeshing 的 Mesh Visualizer 属性中选择需要展示的网格效果。
 
-<img src="ar-tracking-component/meshing-comp.png" alt="meshing-comp" style="zoom:50%;" />
+![ar-tracking-component/meshing-comp.png](ar-tracking-component/meshing-comp.png)
 
 即可直接在运行时将现实环境的表面网格化。
 

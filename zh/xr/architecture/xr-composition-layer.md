@@ -37,23 +37,23 @@
 
 场景中添加任意节点，以空节点为例。为其添加合成层组件，在属性检查器面板点击添加组件，找到 **XR > Extra > XRCompositionLayer**，添加组件。
 
-<img src="xr-composition-layer/add-empty-node.png" style="zoom:50%;" />
+![xr-composition-layer/add-empty-node](xr-composition-layer/add-empty-node.png)
 
-<img src="xr-composition-layer/add-composition-comp.png" alt="add-composition-comp" style="zoom:50%;" />
+![xr-composition-layer/add-composition-comp.png](xr-composition-layer/add-composition-comp.png)
 
 在场景中创建一个 Camera 节点，并将其位置、朝向调整为需要的表现。
 
-<img src="xr-composition-layer/add-camera.png" style="zoom:50%;" />
+![xr-composition-layer/add-camera](xr-composition-layer/add-camera.png)
 
 ![](xr-composition-layer/change-camera-pos.png)
 
 将 Camera 的 Clear Flags 设置为 SOLID_COLOR，并将 Clear Color 的透明度设置为 0。
 
-<img src="xr-composition-layer/set-clear-flags.png" style="zoom:50%;" />
+![xr-composition-layer/set-clear-flags](xr-composition-layer/set-clear-flags.png)
 
 将此 Camera 节点挂载到 Node 身上添加的 cc.XRCompositionLayer 组件的 Camera 属性中。并调整其渲染分辨率、Scale 大小和位置，尽量保证 Scale 的长宽比和渲染分辨率的长宽比相同，否则画面会出现拉伸。Layer Setting 的 Type 选为Overlay，Shape选为Quad。
 
-<img src="xr-composition-layer/config-compositionlayer.png"  style="zoom:50%;" />
+![xr-composition-layer/config-compositionlayer.png](xr-composition-layer/config-compositionlayer.png)
 
 打包后效果如下：
 

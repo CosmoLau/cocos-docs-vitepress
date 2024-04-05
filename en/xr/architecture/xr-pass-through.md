@@ -18,11 +18,11 @@ XR extensions provide dedicated layers for rendering passthrough images while us
 
 Adjust the Clear Flags of the Camera component of the **XR HMD** node to SOLID_COLOR, and set the opacity of Clear Color to 0.
 
-<img src="xr-pass-through/set-hmd-camera.png" style="zoom:50%;" />
+![xr-pass-through/set-hmd-camera](xr-pass-through/set-hmd-camera.png)
 
 Add the passthrough component to the XR HMD node. Find **XR > Extra > XRPassThroughLayer** and click Add.
 
-<img src="xr-pass-through/add-pass-throught-layer.png" style="zoom:50%;" />
+![xr-pass-through/add-pass-throught-layer](xr-pass-through/add-pass-throught-layer.png)
 
 To display the passthrough video image below all 3D content, set the `Placement` property to `Underlay`.
 

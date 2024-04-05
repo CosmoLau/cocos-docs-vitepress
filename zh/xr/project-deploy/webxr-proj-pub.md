@@ -6,11 +6,11 @@
 
 构建平台选择 **Web 移动端**。
 
-<img src="webxr-proj-pub/select-web-mobile.png" style="zoom:50%;" />
+![webxr-proj-pub/select-web-mobile](webxr-proj-pub/select-web-mobile.png)
 
 开启构建面板最后一个属性 **WebXR**。
 
-<img src="webxr-proj-pub/enable-webxr.png" style="zoom:50%;" />
+![webxr-proj-pub/enable-webxr](webxr-proj-pub/enable-webxr.png)
 
 点击构建即可。
 
@@ -28,7 +28,7 @@ WebXR 所使用的用于提供 Web 资源的服务必须使用 [安全上下文(
 
 在命令终端的此目录下输入：**https-server -S** 。启动 https 服务即可。
 
-<img src="webxr-proj-pub/start-https-server.png" style="zoom:50%;" />
+![webxr-proj-pub/start-https-server](webxr-proj-pub/start-https-server.png)
 
 ## 选择可用的设备和浏览器
 
