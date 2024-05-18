@@ -23,11 +23,11 @@ export const en = defineConfig({
 
 function nav(): DefaultTheme.NavItem[] {
     return [
-        { text: 'Home', link: '/' },
+        { text: 'Home', link: '/en' },
         {
             text: 'Cocos Creator',
             items: [
-                { text: 'Manual', link: '/zh/' },
+                { text: 'Manual', link: '/en/' },
                 { text: 'API Ref', link: 'https://docs.cocos.com/creator/3.8/api/zh/' },
             ]
         },
